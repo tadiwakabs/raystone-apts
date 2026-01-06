@@ -1,0 +1,191 @@
+[
+  {
+    "name": "The Chefs’ Table",
+    "description": "Contemporary fine dining with seasonal tasting menus.",
+    "walk": true,
+    "drive": false,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "Olive & Oil Umhlanga",
+    "description": "Modern Mediterranean bistro, perfect for lunch or dinner.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Vivo Umhlanga",
+    "description": "All-day dining — breakfast, lunch, and cocktails.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Little Havana",
+    "description": "Trendy brasserie known for steaks and seafood.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Grimaldi’s @ The Pearls",
+    "description": "Coastal-chic Italian dining with ocean views.",
+    "walk": true,
+    "drive": false,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "Debonairs Pizza",
+    "description": "Casual, family-friendly takeaway option.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Cabana Beach Resort Restaurants",
+    "description": "Several beachfront spots for relaxed meals.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "The Vegan Chef Umhlanga",
+    "description": "100% plant-based café with burgers and smoothies.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": true
+  },
+  {
+    "name": "Doppio Zero Umhlanga",
+    "description": "Popular breakfast and brunch café with wood-fired pizzas.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": true
+  },
+  {
+    "name": "Buttercup Café",
+    "description": "Wholesome vegetarian/vegan café with great coffee.",
+    "walk": true,
+    "drive": false,
+    "fineDining": false,
+    "casual": true,
+    "vegan": true
+  },
+  {
+    "name": "Tiger’s Milk Umhlanga",
+    "description": "Casual spot for burgers, pizza, and craft beers.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Rockets Umhlanga",
+    "description": "Stylish lounge with global fusion menu and cocktails.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Lupa Osteria",
+    "description": "Italian trattoria — homemade pastas, pizzas, and wine.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Joita’s Portuguese Foods",
+    "description": "Portuguese-Mozambican seafood and grilled dishes.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Butcher Boys Umhlanga",
+    "description": "Classic steakhouse — premium cuts and lively atmosphere.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Gateway Theatre of Shopping",
+    "description": "100+ restaurants, cafés, and international brands.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  },
+  {
+    "name": "Platinum Belt Lounge & Restaurant",
+    "description": "Upscale fine dining with a cigar lounge.",
+    "walk": false,
+    "drive": true,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "Signature Restaurant Umhlanga",
+    "description": "Elegant modern fine dining, ideal for special occasions.",
+    "walk": false,
+    "drive": true,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "The Ocean Terrace (Oyster Box Hotel)",
+    "description": "5-star dining with panoramic ocean views.",
+    "walk": false,
+    "drive": true,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "The Sugar Club (Beverly Hills Hotel)",
+    "description": "Refined fine dining with award-winning wine list.",
+    "walk": false,
+    "drive": true,
+    "fineDining": true,
+    "casual": false,
+    "vegan": false
+  },
+  {
+    "name": "The Village Table",
+    "description": "Mediterranean and Afro-Portuguese dishes in a vibrant setting.",
+    "walk": false,
+    "drive": true,
+    "fineDining": false,
+    "casual": true,
+    "vegan": false
+  }
+]

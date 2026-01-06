@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>84 Sea Lodge | Contact</title>
+    <meta name="description" content="Welcome to 84 Sea Lodge! Nestled on Lagoon Drive, just steps from the sand,
+    this stylish, newly renovated apartment offers the perfect blend of comfort and luxury. Whether you’re planning a
+    weekend getaway or an extended stay, this upmarket retreat has everything you need to relax, recharge, and explore.">
+    <link rel="icon" type="image/svg+xml" href="src/logo.svg"/>
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="index.js" defer></script>
+    <script src="contact.js" defer></script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HFNE0RWDG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9HFNE0RWDG');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17606382623">
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17606382623');
+</script>
+
+
+
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<header class="fixed w-full z-40 bg-white shadow-md">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-4">
+            <img src="src/logo.svg" width="36" alt="logo">
+            <a href="index.html" class="hidden md:flex text-2xl font-bold text-blue-800">
+                84 Sea Lodge
+            </a>
+        </div>
+        <a href="index.html" class="md:hidden flex text-2xl font-bold text-blue-800">
+            84 Sea Lodge
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex space-x-6 text-blue-800 font-medium text-sm md:text-lg">
+            <a href="index.html" class="hover:text-blue-600 text-center">Home</a>
+            <a href="attractions.html" class="hover:text-blue-600 text-center">Attractions</a>
+            <a href="restaurants.html" class="hover:text-blue-600 text-center">Restaurants</a>
+            <a href="gallery.html" class="hover:text-blue-600 text-center">Gallery</a>
+            <a href="contact.html" class="hover:text-blue-600 text-center">Contact</a>
+            <a href="https://book.nightsbridge.com/23664?bbrtid=91" target="_blank"
+               class="hover:text-blue-600 text-center">Book Now</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" type="button" class="md:hidden p-2 text-blue-800 focus:outline-none z-50">
+            <!-- Hamburger Icon -->
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+
+            <!-- Close Icon -->
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobileMenu"
+         class="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-md z-30 flex flex-col
+          items-center justify-center space-y-8 text-2xl font-semibold text-blue-800
+          opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+    >
+        <a href="index.html" class="hover:text-blue-600" onclick="toggleMenu()">Home</a>
+        <a href="attractions.html" class="hover:text-blue-600" onclick="toggleMenu()">Attractions</a>
+        <a href="restaurants.html" class="hover:text-blue-600" onclick="toggleMenu()">Restaurants</a>
+        <a href="gallery.html" class="hover:text-blue-600" onclick="toggleMenu()">Gallery</a>
+        <a href="contact.html" class="hover:text-blue-600" onclick="toggleMenu()">Contact</a>
+        <a href="https://book.nightsbridge.com/23664?bbrtid=91"
+           target="_blank"
+           class="hover:text-blue-600" onclick="toggleMenu()">Book Now</a>
+    </div>
+</header>
+
+<div class="pt-20">
+    <!-- Title -->
+    <div class="flex items-center justify-center h-24 sm:h-34 px-4 max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-7xl font-bold text-blue-900 text-center">84 Sea Lodge</h1>
+    </div>
+    <div class="flex items-center justify-center h-20 px-4 max-w-6xl mx-auto">
+        <h2 class="text-2xl font-semibold text-blue-800 text-center">Your gateway to an unforgettable experience.</h2>
+    </div>
+
+
+    <!-- Heading -->
+    <div class="max-w-6xl mx-auto flex items-center justify-center mt-4 sm:mt-0">
+        <h1 class="text-4xl font-semibold text-blue-800 px-4">Contact Us</h1>
+    </div>
+
+    <!-- Contact Form + Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Cards -->
+        <div class="flex flex-col justify-center space-y-12 max-md:mt-6">
+            <!-- WhatsApp Card -->
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap justify-center items-center gap-2
+            md:gap-4 px-2 md:px-6"
+            >
+                <img class="w-10" src="src/images/whatsapp.svg" alt="WhatsApp Logo">
+                <span class="font-medium md:text-xl text-blue-800">WhatsApp </span>
+                <a href="https://wa.me/27685016063?text=Hello%2084%20Sea%20Lodge%2C%20I%27d%20like%20to%20book%20a%20stay."
+                   class="font-medium md:text-xl text-blue-800"
+                   target="_blank"
+                >
+                    +27 68 501 6063
+                </a>
+            </div>
+            <!-- Phone Card -->
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap items-center justify-center
+            max-md:gap-2 max-md:px-2 md:space-x-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="lucide lucide-phone-icon lucide-phone text-blue-800 md:mr-12">"
+                    >
+                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0
+                    1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292
+                    1.233 14 14 0 0 0 6.392 6.384"
+                    />
+                </svg>
+                <div class="space-x-6 text-center max-md:ml-2">
+                    <span class="font-medium md:text-xl text-blue-800">Phone </span>
+                    <a href="tel:+263783106946" class="font-medium md:text-xl text-blue-800">
+                        +27 68 501 6063
+                    </a>
+                </div>
+            </div>
+            <!-- Email Card -->
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap items-center justify-center gap-2
+            md:gap-4 px-2 md:px-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="lucide lucide-mail-icon lucide-mail text-blue-800">
+                    >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                </svg>
+                <span class="font-medium md:text-xl text-blue-800">Email</span>
+                <a href="mailto:stay@84Sealodge.com" class="font-medium md:text-xl text-blue-800">stay@84SeaLodge.com </a>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div>
+            <p class="md:hidden text-2xl text-blue-800 font-medium text-center"> Contact Form</p>
+            <p class="flex justify-center text-sm font-medium mt-8 mr-36 md:mr-86 text-red-700 mb-2">*
+                <span class="text-blue-800 ">&nbsp;Required</span></p>
+            <div class="card p-2 mx-8 rounded-lg">
+                <div class="px-4 max-w-6xl mx-auto mt-2 flex items-center justify-center">
+                    <form action="https://formsubmit.co/a0fe00e10a74de9aa37c1e406b7e7598"
+                          method="POST"
+                          class="text-blue-800 font-medium"
+                          id="contactForm">
+
+                        <!-- Anti-spam -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4">
+                            <div>
+                                <!-- First Name -->
+                                <p class="px-4"> First Name</p>
+                                <label for="firstName">
+                                    <input type="text" id="firstName" name="First Name" placeholder="First Name"
+                                           class="border border-blue-800 mt-4 px-4 py-2 w-full text-black"
+                                           minlength="2">
+                                </label>
+                            </div>
+                            <div>
+                                <!-- Last Name -->
+                                <p class="px-4"> Last Name</p>
+                                <label for="lastName">
+                                    <input type="text" id="lastName" name="Last Name" placeholder="Last Name"
+                                           class="border border-blue-800 mt-4 px-4 py-2 w-full text-black"
+                                           minlength="2">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <!-- Email -->
+                            <p class="px-4"> Email <span class="text-red-700">*</span></p>
+                            <label for="email">
+                                <input type="email" id="email" name="Email" placeholder="Email"
+                                       class="border border-blue-800 mt-4 px-4 py-2 w-full text-black"
+                                       required>
+                            </label>
+                        </div>
+                        <div class="relative w-full mt-4">
+                            <!-- Phone -->
+                            <p class="px-4">Phone</p>
+                            <div class="flex items-center border border-blue-800 mt-4">
+                                <!-- Country selector -->
+                                <div id="countrySelector"
+                                     class="flex items-center justify-between px-3 py-2 cursor-pointer w-28
+                                     text-blue-800 relative border-r border-r-blue-800 bg-gray-300">
+                                    <span id="selectedFlag">
+                                        <img src="https://flagcdn.com/24x18/za.png" alt="South Africa" class="w-10 h-4">
+                                    </span>
+                                    <span id="selectedCode">+27</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         class="w-4 h-4 ml-2 text-blue-800" fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+
+                                <!-- Phone input -->
+                                <input type="hidden" id="countryCode" name="Country Code">
+                                <label for="phone"></label>
+                                <input type="text" id="phone" name="Phone"
+                                      placeholder="Phone"
+                                      class="w-full px-4 py-2 focus:outline-black text-black" />
+                            </div>
+
+                            <!-- Dropdown -->
+                            <div id="dropdown"
+                                 class="absolute left-0 right-0 bg-white border border-blue-800 shadow-lg mt-1 max-h-64
+                                  overflow-y-auto hidden z-50 scroll:">
+                                <label for="searchCountry"></label>
+                                <input id="searchCountry" type="text"
+                                      placeholder="Search country..."
+                                      class="w-full px-3 py-2 border-b border-blue-800 outline-none text-sm text-blue-800">
+                                <div id="countryList"></div>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mt-4">
+                            <p class="px-4"> Message <span class="text-red-700">*</span></p>
+                            <label for="message">
+                                <textarea id="message" name="Message" placeholder="Message"
+                                          class="w-full h-40 px-4 py-3 mt-4 border border-blue-800 text-black"
+                                          required></textarea>
+                            </label>
+                        </div>
+
+                        <div class="flex items-center justify-center p-4">
+                            <button type="submit"
+                                    class="border border-black rounded-full bg-blue-800 text-white font-medium px-12
+                                    py-2 hover:bg-white hover:text-blue-800 transition-colors duration-300 ease-in-out
+                                    cursor-pointer"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Form Submission Confirmation Popup -->
+    <div
+            id="thankYouPopup"
+            class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 opacity-0 transition-opacity duration-300"
+    >
+        <div class=" relative bg-white rounded-lg shadow-lg mx-4 p-8 text-center max-w-md z-50">
+            <h2 class="text-2xl font-bold text-blue-800">Thank You!</h2>
+            <p class="mt-4 text-gray-700 font-medium">Your message has been sent. We will get back to you shortly.</p>
+            <button onclick="closePopup()"
+                    class="mt-6 bg-blue-800 text-white font-medium px-6 py-2 rounded hover:bg-blue-600">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <div class="h-20"></div>
+    <!-- Footer -->
+    <footer class="bg-blue-900 h-100 sm:h-100">
+        <div class="max-w-7xl grid grid-cols-2 mx-auto items-start justify-between p-6">
+            <!-- Address -->
+            <div class="text-center text-white">
+                <h1 class="text-2xl md:text-3xl font-medium underline decoration-2">Address</h1>
+                <div class="flex flex-col items-center font-light text-md md:text-xl">
+                    <p class="italic">84 Sea Lodge <span class="max-md:hidden">(8th floor)</span></p>
+                    <p class="">28 Lagoon Drive</p>
+                    <p class="">Umhlanga Rocks,</p>
+                    <p class="">4320, South Africa</p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="text-center text-white">
+                <h1 class="text-2xl md:text-3xl font-medium underline decoration-2">Contact</h1>
+                <p class="font-light md:text-xl">stay@84SeaLodge.com</p>
+                <p class="font-light md:text-xl">Call/WA +27 68 501 6063</p>
+            </div>
+
+            <!-- Follow -->
+            <div class="hidden text-center text-white">
+                <h1 class="text-3xl font-medium underline decoration-2">Follow</h1>
+                <div class="flex flex-col items-center">
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        Facebook
+                    </a>
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        Instagram
+                    </a>
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Legal -->
+            <div class="hidden text-center text-white">
+                <h1 class="text-3xl font-medium underline decoration-2">Legal</h1>
+                <a
+                        class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                        href=""
+                >
+                    Privacy Policy
+                </a>
+            </div>
+        </div>
+        <h1 class="text-center mx-auto max-w-6xl text-4xl md:text-6xl text-white mt-10">84 Sea Lodge</h1>
+        <p class="text-center mx-auto mt-4 max-w-6xl text-xl text-white">
+            &copy; <span id="year"></span> Sunrise Coastal Group.
+        </p>
+
+    </footer>
+</div>
+</body>
+</html>

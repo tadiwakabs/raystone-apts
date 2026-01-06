@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>84 Sea Lodge | Gallery</title>
+    <meta name="description" content="Welcome to 84 Sea Lodge! Nestled on Lagoon Drive, just steps from the sand,
+    this stylish, newly renovated apartment offers the perfect blend of comfort and luxury. Whether you’re planning a
+    weekend getaway or an extended stay, this upmarket retreat has everything you need to relax, recharge, and explore. ">
+    <link rel="icon" type="image/svg+xml" href="src/logo.svg"/>
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="index.js" defer></script>
+    <script src="gallery.js" defer></script>
+    <script>
+        // Smooth scroll if a hash is present in the URL
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    // Wait briefly to ensure layout is ready
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                }
+            }
+        });
+    </script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HFNE0RWDG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9HFNE0RWDG');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17606382623">
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17606382623');
+</script>
+
+
+
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<header class="fixed w-full z-40 bg-white shadow-md">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-4">
+            <img src="src/logo.svg" width="36" alt="logo">
+            <a href="index.html" class="hidden md:flex text-2xl font-bold text-blue-800">
+                84 Sea Lodge
+            </a>
+        </div>
+        <a href="index.html" class="md:hidden flex text-2xl font-bold text-blue-800">
+            84 Sea Lodge
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex space-x-6 text-blue-800 font-medium text-sm md:text-lg">
+            <a href="index.html" class="hover:text-blue-600 text-center">Home</a>
+            <a href="attractions.html" class="hover:text-blue-600 text-center">Attractions</a>
+            <a href="restaurants.html" class="hover:text-blue-600 text-center">Restaurants</a>
+            <a href="gallery.html" class="hover:text-blue-600 text-center">Gallery</a>
+            <a href="contact.html" class="hover:text-blue-600 text-center">Contact</a>
+            <a href="https://book.nightsbridge.com/23664?bbrtid=91" target="_blank"
+               class="hover:text-blue-600 text-center">Book Now</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" type="button" class="md:hidden p-2 text-blue-800 focus:outline-none z-50">
+            <!-- Hamburger Icon -->
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+
+            <!-- Close Icon -->
+            <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg"
+                 class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobileMenu"
+         class="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-md z-30 flex flex-col
+          items-center justify-center space-y-8 text-2xl font-semibold text-blue-800
+          opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+    >
+        <a href="index.html" class="hover:text-blue-600" onclick="toggleMenu()">Home</a>
+        <a href="attractions.html" class="hover:text-blue-600" onclick="toggleMenu()">Attractions</a>
+        <a href="restaurants.html" class="hover:text-blue-600" onclick="toggleMenu()">Restaurants</a>
+        <a href="gallery.html" class="hover:text-blue-600" onclick="toggleMenu()">Gallery</a>
+        <a href="contact.html" class="hover:text-blue-600" onclick="toggleMenu()">Contact</a>
+        <a href="https://book.nightsbridge.com/23664?bbrtid=91"
+           target="_blank"
+           class="hover:text-blue-600" onclick="toggleMenu()">Book Now</a>
+    </div>
+</header>
+
+<div class="pt-20">
+<!-- Title -->
+<div class="flex items-center justify-center h-40 px-4 max-w-6xl mx-auto">
+    <h1 class="text-5xl md:text-7xl font-bold text-blue-900 text-center">The Sea Lodge Experience</h1>
+</div>
+
+
+<!-- Heading -->
+<div class="max-w-6xl mx-auto flex items-center justify-center">
+    <h1 class="text-4xl font-semibold text-blue-800 px-4 mt-4">Photo Gallery</h1>
+</div>
+
+<!-- Room Gallery -->
+<div class="px-4 max-w-6xl mx-auto">
+
+    <div id="interior-g" class="h-16"></div>
+    <!-- Interior -->
+    <section class="max-w-6xl mx-auto px-4 py-0.5 mt-4">
+        <!-- Toggle button -->
+        <button
+                onclick="toggleSection('expandableSectionInterior', 'arrowIconInterior')"
+                class="h-20 w-full border border-x-blue-50/0 flex items-center justify-between text-blue-800
+                px-4 py-2 select-none transform hover:scale-102 transition-transform duration-300"
+        >
+            <span class="text-2xl md:text-3xl">Interior</span>
+            <!-- Arrow icon -->
+            <svg id="arrowIconInterior" class="w-5 h-5 transform transition-transform duration-300 rotate-180"
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+
+        <!-- Collapsible content -->
+        <div id="expandableSectionInterior"
+             class="transition-all duration-500 ease-in-out overflow-hidden max-h-500
+                  border-l border-r border-b border-blue-800">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/bedroom1-1.jpg" alt="Bedroom 1"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 0)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/kitchen-1.jpg" alt="Kitchen"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 5)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/bathroom1.jpeg" alt="Bathroom"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 10)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/living-3.jpg" alt="Living Room"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 14)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/dining-2.jpg" alt="Dining Area"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 16)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/balcony-1.jpg" alt="Balcony"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('interior', 17)"
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
+                <a
+                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800 px-10 py-3
+                        mt-4 rounded-md w-full sm:w-auto hover:bg-blue-100 hover:text-blue-600 font-medium
+                        transition-colors duration-300 ease-in-out cursor-pointer"
+                        onclick="openLightbox('interior', 0)"
+                >
+                    View All
+                </a>
+                <a
+                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
+                               px-8 py-3 mt-4 rounded-md w-full sm:w-auto
+                               hover:bg-blue-100 hover:text-blue-600 font-medium
+                               transition-colors duration-300 ease-in-out"
+                        href="https://book.nightsbridge.com/23664?bbrtid=91"
+                        target="_blank"
+                >
+                    Book Now
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+</div>
+
+<!-- Exterior Gallery -->
+<div class="px-4 max-w-6xl mx-auto mt-24">
+
+    <!-- Exterior -->
+    <section class="max-w-6xl mx-auto px-4 py-0.5 mt-4">
+        <!-- Toggle button -->
+        <button
+                onclick="toggleSection('expandableSectionExterior', 'arrowIconExterior')"
+                class="h-20 w-full border border-x-blue-50/0 flex items-center justify-between text-blue-800
+                px-4 py-2 select-none transform hover:scale-102 transition-transform duration-300"
+        >
+            <span class="text-3xl">Exterior</span>
+            <!-- Arrow icon -->
+            <svg id="arrowIconExterior" class="w-5 h-5 transform transition-transform duration-300 rotate-180"
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+
+        <!-- Collapsible content -->
+        <div id="expandableSectionExterior"
+             class="transition-all duration-500 ease-in-out overflow-hidden max-h-500
+                  border-l border-r border-b border-blue-800">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/pool-1.jpg" alt="Pool"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('exterior', 0)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/parking2.jpg" alt="Designated Parking"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('exterior', 4)"
+                    />
+                </div>
+                <div class="aspect-[4/3]">
+                    <img
+                            src="src/images/sealodgepics/sealodgesign.jpg" alt="Entrance"
+                            class="w-full h-full object-cover cursor-pointer card-hover"
+                            onclick="openLightbox('exterior', 6)"
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
+                <a
+                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
+                                   px-10 py-3 mt-4 rounded-md w-full sm:w-auto
+                                   hover:bg-blue-100 hover:text-blue-600 font-medium
+                                   transition-colors duration-300 ease-in-out cursor-pointer"
+                        onclick="openLightbox('exterior', 0)"
+                >
+                    View All
+                </a>
+                <a
+                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
+                               px-8 py-3 mt-4 rounded-md w-full sm:w-auto
+                               hover:bg-blue-100 hover:text-blue-600 font-medium
+                               transition-colors duration-300 ease-in-out"
+                        href="https://book.nightsbridge.com/23664?bbrtid=91"
+                        target="_blank"
+                >
+                    Book Now
+                </a>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+
+<!-- Lightbox -->
+<div id="lightbox"
+     class="fixed inset-0 bg-gray-100 hidden items-center justify-center z-50">
+
+    <!-- Close button -->
+    <button onclick="closeLightbox()"
+            class="absolute top-4 right-4 text-gray-900 text-6xl font-semibold z-50 cursor-pointer">&times;</button>
+
+    <!-- Fullscreen image -->
+    <div class="relative w-full h-full flex flex-col items-center justify-center px-4">
+        <!-- Room name -->
+        <div id="lightbox-room"
+             class="text-gray-800 text-2xl font-semibold mb-8">
+        </div>
+
+        <img id="lightbox-img"
+             src=""
+             class="max-w-full max-h-[80%] object-contain transition-opacity duration-500 ease-in-out opacity-0"
+             alt="image"
+        />
+        <!-- Image counter -->
+        <div id="lightbox-counter"
+             class=" bottom-6 px-3 py-1 text-gray-800 text-xl mt-4">
+        </div>
+
+        <!-- Prev/Next buttons -->
+        <!-- Prev Button -->
+        <button
+            class="prevBtn absolute top-1/2 left-4 -translate-y-1/2 flex items-center justify-center w-10 h-10
+                bg-gray-100 border border-blue-800 rounded-full shadow cursor-pointer hover:bg-blue-800
+                transition-colors"
+            onclick="prevImage()"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-5 h-5 text-blue-800 hover:text-white"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-6-7 6-7" />
+            </svg>
+        </button>
+
+        <!-- Next Button -->
+        <button
+            class="nextBtn absolute top-1/2 right-4 -translate-y-1/2 flex items-center justify-center w-10 h-10
+                bg-gray-100 border border-blue-800 rounded-full shadow cursor-pointer hover:bg-blue-800
+                transition-colors"
+            onclick="nextImage()"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-5 h-5 text-blue-800 hover:text-white"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l6 7-6 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+
+
+<div class="h-20"></div>
+    <!-- Footer -->
+    <footer class="bg-blue-900 h-100 sm:h-100">
+        <div class="max-w-7xl grid grid-cols-2 mx-auto items-start justify-between p-6">
+            <!-- Address -->
+            <div class="text-center text-white">
+                <h1 class="text-2xl md:text-3xl font-medium underline decoration-2">Address</h1>
+                <div class="flex flex-col items-center font-light text-md md:text-xl">
+                    <p class="italic">84 Sea Lodge <span class="max-md:hidden">(8th floor)</span></p>
+                    <p class="">28 Lagoon Drive</p>
+                    <p class="">Umhlanga Rocks,</p>
+                    <p class="">4320, South Africa</p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="text-center text-white">
+                <h1 class="text-2xl md:text-3xl font-medium underline decoration-2">Contact</h1>
+                <p class="font-light md:text-xl">stay@84SeaLodge.com</p>
+                <p class="font-light md:text-xl">Call/WA +27 68 501 6063</p>
+            </div>
+
+            <!-- Follow -->
+            <div class="hidden text-center text-white">
+                <h1 class="text-3xl font-medium underline decoration-2">Follow</h1>
+                <div class="flex flex-col items-center">
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        Facebook
+                    </a>
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        Instagram
+                    </a>
+                    <a
+                            class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                            href=""
+                            target="_blank"
+                    >
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Legal -->
+            <div class="hidden text-center text-white">
+                <h1 class="text-3xl font-medium underline decoration-2">Legal</h1>
+                <a
+                        class="text-xl hover:text-blue-500 transition-colors duration-300 ease-in-out"
+                        href=""
+                >
+                    Privacy Policy
+                </a>
+            </div>
+        </div>
+        <h1 class="text-center mx-auto max-w-6xl text-4xl md:text-6xl text-white mt-10">84 Sea Lodge</h1>
+        <p class="text-center mx-auto mt-4 max-w-6xl text-xl text-white">
+            &copy; <span id="year"></span> Sunrise Coastal Group.
+        </p>
+
+    </footer>
+</div>
+</body>
+</html>

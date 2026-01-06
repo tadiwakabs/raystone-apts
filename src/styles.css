@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+html, body {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth !important;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    inset-inline: 0;
+    padding-top: env(safe-area-inset-top);
+}
+
+.card {
+    @apply bg-[#e7e8ed] shadow;
+}
+
+@utility card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg;
+}
+
+@utility faq-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+.center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-left {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @apply max-md:justify-start max-md:pl-5;
+}
+
+.between {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-btn {
+    cursor: pointer;
+}
+
+/* Styling for Contact - Country Codes*/
+#dropdown {
+    transition: all 0.2s ease-in-out;
+}
+
+#countryList div {
+    transition: background-color 0.2s ease-in-out;
+}
+/* Dropdown container should *not* scroll */
+#dropdown {
+    max-height: none; /* ensure it grows naturally */
+    overflow: visible; /* no scroll here */
+    transition: all 0.2s ease-in-out;
+}
+
+#countryList {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Chrome / Edge / Safari scrollbar styling */
+#countryList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#countryList::-webkit-scrollbar-thumb {
+    background-color: #1e40af; /* Tailwind blue-800 */
+    border-radius: 8px;
+    border: 2px solid #f9fafb; /* white border for contrast */
+}
+
+#countryList::-webkit-scrollbar-thumb:hover {
+    background-color: #1d4ed8; /* Tailwind green-700 */
+}
+
+#countryList::-webkit-scrollbar-track {
+    background: #f3f4f6; /* Tailwind gray-100 */
+    border-radius: 8px;
+}
+
+/* Firefox scrollbar styling */
+#countryList {
+    scrollbar-width: thin;
+    scrollbar-color: #1e40af #f3f4f6; /* thumb, track */
+}
