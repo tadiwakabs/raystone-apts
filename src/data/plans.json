@@ -1,0 +1,34 @@
+[
+  {
+    "name": "The Pelican",
+    "description": "3 Bed | 2 Bath | 1277 sq.ft",
+    "price": 1665,
+    "image": "src/images/Raystone/The Pelican 3 BR 2 Bath.png",
+    "planId": "pelican",
+    "galleryId": "bedroom-g"
+  },
+  {
+    "name": "The Falcon",
+    "description": "2 Bed | 2 Bath | 964 sq.ft",
+    "price": 1415,
+    "image": "src/images/Raystone/The Falcon 2 BR 2 Bath.png",
+    "planId": "falcon",
+    "galleryId": "bathroom-g"
+  },
+  {
+    "name": "The Raven",
+    "description": "2 Bed | 2 Bath | 951 sq.ft",
+    "price": 1665,
+    "image": "src/images/Raystone/The Raven 2 BR 2 Bath.png",
+    "planId": "raven",
+    "galleryId": "kitchen-g"
+  },
+  {
+    "name": "The Sparrow",
+    "description": "3 Bed | 2 Bath | 1294 sq.ft",
+    "price": 1665,
+    "image": "src/images/Raystone/The Sparrow 3 BR 2 Bath.png",
+    "planId": "sparrow",
+    "galleryId": "dining-g"
+  }
+]

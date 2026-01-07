@@ -1,3 +1,13 @@
+// Underline active nav link
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".nav-link").forEach(link => {
+    if (link.getAttribute("href") === currentPage ||
+        (currentPage === "" && link.getAttribute("href") === "index.html")) {
+        link.classList.add("underline", "underline-offset-4", "font-semibold");
+    }
+});
+
 // Mobile Navigation
 const menuBtn = document.getElementById("menuBtn");
 const menuIcon = document.getElementById("menuIcon");
@@ -123,33 +133,103 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     startAutoplay();
 });
 
-// Load room info
-fetch("src/data/rooms.json")
+// Load plan info (FOR MOBILE, RENDER ANCHORS UNDER)
+fetch("src/data/plans.json")
     .then((res) => res.json())
     .then((rooms) => {
         const tableBody = document.getElementById("roomsTableBody");
+        const cardsContainer = document.getElementById("roomsCards");
+
         tableBody.innerHTML = "";
+        cardsContainer.innerHTML = "";
 
         rooms.forEach((room) => {
+            const price = Number(room.price).toLocaleString("en-US");
+
+            /* =========================
+               MOBILE CARD
+            ========================= */
+            const card = document.createElement("div");
+            card.className =
+                "bg-gray-50 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden mx-4";
+
+            card.innerHTML = `
+        <div class="p-4 flex gap-4">
+          <img
+            src="${room.image}"
+            alt="${room.name} floor plan"
+            class="w-24 h-20 object-cover rounded-md shadow-sm flex-shrink-0 cursor-pointer"
+          />
+
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-gray-900">${room.name}</h3>
+            <p class="text-sm text-gray-700 mt-1">${room.description}</p>
+            <p class="text-sm font-semibold text-gray-900 mt-2"><span>Starting at $</span> ${price}</p>
+          </div>
+        </div>
+
+        <div class="px-4 pb-4 flex gap-2">
+          <a
+            onclick="navigateToGallery('${room.planId}')"
+            class="flex-1 text-center text-gray-800 text-sm bg-gray-300 px-3 py-2 rounded-md
+                   hover:bg-gray-800/80 hover:text-gray-200 font-medium transition-colors duration-300
+                   ease-in-out cursor-pointer"
+          >
+            View Floor Plan
+          </a>
+
+          <a
+            onclick="navigateToGallery('${room.galleryId}')"
+            class="flex-1 text-center text-gray-100 text-sm bg-gray-800 px-3 py-2 rounded-md
+                   hover:bg-gray-200 hover:text-gray-600 font-medium transition-colors duration-300
+                   ease-in-out cursor-pointer"
+          >
+            View Gallery
+          </a>
+        </div>
+      `;
+
+            cardsContainer.appendChild(card);
+
+            /* =========================
+               DESKTOP TABLE ROW
+            ========================= */
             const row = document.createElement("tr");
             row.className = "hover:bg-gray-50 transition-colors duration-300 ease-in-out";
+
             row.innerHTML = `
         <td class="px-4 py-3 text-center">
-          <img src="${room.image}" alt="${room.name}" 
+          <img src="${room.image}" alt="${room.name} floor plan"
           class="w-32 h-24 object-cover rounded-md mx-auto shadow-sm cursor-pointer card-hover">
         </td>
-        <td class="md:px-4 py-3 text-lg md:text-xl font-medium text-blue-800">
+
+        <td class="px-4 py-3 text-xl font-medium text-gray-800 text-center">
           ${room.name}
         </td>
-        <td class="px-2 md:px-4 py-3 text-sm md:text-xl text-gray-800">
+
+        <td class="px-4 py-3 text-xl text-gray-800 text-center">
           ${room.description}
         </td>
-        <td class="md:px-2 py-3 text-xl">
-          <div class="flex max-md:flex-col items-center gap-3">
+
+        <td class="px-4 py-3 text-xl text-gray-800 font-medium text-center">
+          <span>$&nbsp;</span>${price}
+        </td>
+
+        <td class="px-4 py-3">
+          <div class="flex items-center justify-end gap-3">
+            <a
+              onclick="navigateToGallery('${room.planId}')"
+              class="text-gray-800 text-lg bg-gray-300 px-3 py-2 rounded-md
+                     hover:bg-gray-800/80 hover:text-gray-200 font-medium transition-colors duration-300
+                     ease-in-out whitespace-nowrap cursor-pointer"
+            >
+              View Floor Plan
+            </a>
+
             <a
               onclick="navigateToGallery('${room.galleryId}')"
-              class="max-md:hidden text-white text-sm md:text-lg bg-blue-800 px-3 py-2 rounded-md w-auto
-                     hover:bg-blue-100 hover:text-blue-600 font-medium transition-colors duration-300
+              class="text-gray-100 text-lg bg-gray-800 px-3 py-2 rounded-md
+                     hover:bg-gray-200 hover:text-gray-600 font-medium transition-colors duration-300
                      ease-in-out whitespace-nowrap cursor-pointer"
             >
               View Gallery
@@ -157,10 +237,12 @@ fetch("src/data/rooms.json")
           </div>
         </td>
       `;
+
             tableBody.appendChild(row);
         });
     })
-    .catch((err) => console.error("Error loading rooms:", err));
+    .catch((err) => console.error("Error loading floor plans:", err));
+
 
 // Fullscreen image viewer logic
 const imageModal = document.getElementById("imageModal");
