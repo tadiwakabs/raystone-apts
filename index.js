@@ -158,7 +158,7 @@ fetch("src/data/plans.json")
           <img
             src="${room.image}"
             alt="${room.name} floor plan"
-            class="w-24 h-20 object-cover rounded-md shadow-sm flex-shrink-0 cursor-pointer"
+            class="w-24 h-20 object-cover rounded-md shadow-sm flex-shrink-0 cursor-pointer modal-trigger"
           />
 
           <div class="flex-1">
@@ -200,7 +200,7 @@ fetch("src/data/plans.json")
             row.innerHTML = `
         <td class="px-4 py-3 text-center">
           <img src="${room.image}" alt="${room.name} floor plan"
-          class="w-32 h-24 object-cover rounded-md mx-auto shadow-sm cursor-pointer card-hover">
+          class="w-32 h-24 object-cover rounded-md mx-auto shadow-sm cursor-pointer card-hover modal-trigger">
         </td>
 
         <td class="px-4 py-3 text-xl font-medium text-gray-800 text-center">
@@ -251,11 +251,11 @@ const closeButton = imageModal.querySelector("button");
 
 // Open modal when an image is clicked
 document.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG" && (e.target.closest("#roomsTableBody") || e.target.closest("#footerImages"))) {
-        modalImage.src = e.target.src;
-        imageModal.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; // disable scroll
-    }
+    const img = e.target.closest(".modal-trigger");
+    if (!img) return;
+
+    modalImage.src = img.getAttribute("data-modal-src") || img.getAttribute("src");
+    imageModal.classList.remove("hidden");
 });
 
 // Close modal when the Close button is clicked
