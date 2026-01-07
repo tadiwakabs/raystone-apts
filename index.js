@@ -212,6 +212,7 @@ fetch("src/data/plans.json")
         </td>
 
         <td class="px-4 py-3 text-xl text-gray-800 font-medium text-center">
+          <p class="text-[13px] mb-1">Starting at</p>
           <span>$&nbsp;</span>${price}
         </td>
 
@@ -256,26 +257,28 @@ document.addEventListener("click", (e) => {
 
     modalImage.src = img.getAttribute("data-modal-src") || img.getAttribute("src");
     imageModal.classList.remove("hidden");
+    document.body.classList.add("no-scroll");
 });
 
 // Close modal when the Close button is clicked
 closeButton.addEventListener("click", () => {
     imageModal.classList.add("hidden");
-    document.body.style.overflow = "auto"; // re-enable scroll
+    document.body.classList.remove("no-scroll");
 });
 
-// Close modal when clicking outside the image or pressing Escape
+// Close modal when clicking outside the image
 imageModal.addEventListener("click", (e) => {
     if (e.target === imageModal) {
         imageModal.classList.add("hidden");
-        document.body.style.overflow = "auto";
+        document.body.classList.remove("no-scroll");
     }
 });
 
+// Close modal when pressing Escape
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         imageModal.classList.add("hidden");
-        document.body.style.overflow = "auto";
+        document.body.classList.remove("no-scroll");
     }
 });
 

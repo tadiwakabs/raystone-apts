@@ -18,7 +18,7 @@
   {
     "name": "The Raven",
     "description": "2 Bed | 2 Bath | 951 sq.ft",
-    "price": 1665,
+    "price": 1465,
     "image": "src/images/Raystone/The Raven 2 BR 2 Bath.png",
     "planId": "raven",
     "galleryId": "kitchen-g"
@@ -26,7 +26,7 @@
   {
     "name": "The Sparrow",
     "description": "3 Bed | 2 Bath | 1294 sq.ft",
-    "price": 1665,
+    "price": 1615,
     "image": "src/images/Raystone/The Sparrow 3 BR 2 Bath.png",
     "planId": "sparrow",
     "galleryId": "dining-g"
