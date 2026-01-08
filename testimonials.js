@@ -71,21 +71,46 @@ fetch("src/data/testimonials.json")
             scrollToCard(target, behavior);
         }
 
-        function goNext() {
+        // Convenience: next/prev from whatever is centered
+        function getStep() {
+            const cards = track.querySelectorAll("article");
+            if (cards.length < 3) return 420;
+            const styles = getComputedStyle(track);
+            const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
+            return cards[1].getBoundingClientRect().width + gap; // one card step
+        }
+
+        function goNext(useClones = false) {
             collapseAllExpandedReviews();
 
             const current = getActiveRealIndex();
-            const nextIndex = (current + 1) % reviews.length; // wrap around
+            const isLast = current === reviews.length - 1;
 
+            if (isLast && useClones) {
+                // For auto-scroll: smoothly move onto the appended firstClone
+                track.scrollBy({ left: getStep(), behavior: "smooth" });
+                return;
+            }
+
+            // For buttons or normal progression: wrap around directly
+            const nextIndex = (current + 1) % reviews.length;
             goToRealIndex(nextIndex, "smooth");
         }
 
-        function goPrev() {
+        function goPrev(useClones = false) {
             collapseAllExpandedReviews();
 
             const current = getActiveRealIndex();
-            const prevIndex = (current - 1 + reviews.length) % reviews.length; // wrap around
+            const isFirst = current === 0;
 
+            if (isFirst && useClones) {
+                // For manual swipes: smoothly move onto the prepended lastClone
+                track.scrollBy({ left: -getStep(), behavior: "smooth" });
+                return;
+            }
+
+            // For buttons or normal progression: wrap around directly
+            const prevIndex = (current - 1 + reviews.length) % reviews.length;
             goToRealIndex(prevIndex, "smooth");
         }
 
@@ -205,7 +230,7 @@ fetch("src/data/testimonials.json")
             stopAutoScroll();
             autoTimer = setInterval(() => {
                 if (isPaused) return;
-                goNext();
+                goNext(true); // use clones for smooth infinite scroll
             }, 5000);
         }
 
