@@ -63,7 +63,7 @@ fetch("src/data/testimonials.json")
             track.scrollTo({ left: track.scrollLeft + delta, behavior });
         }
 
-        // Real index: 0.reviews.length-1
+        // Real index: 0..reviews.length-1
         function goToRealIndex(realIndex, behavior = "smooth") {
             const cards = track.querySelectorAll("article");
             const target = cards[realIndex + 1]; // +1 because cards[0] is lastClone
@@ -71,45 +71,22 @@ fetch("src/data/testimonials.json")
             scrollToCard(target, behavior);
         }
 
-        // Convenience: next/prev from whatever is centered
-        function getStep() {
-            const cards = track.querySelectorAll("article");
-            if (cards.length < 3) return 420;
-            const styles = getComputedStyle(track);
-            const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
-            return cards[1].getBoundingClientRect().width + gap; // one card step
-        }
-
         function goNext() {
-            const current = getActiveRealIndex();
-            const isLast = current === reviews.length - 1;
-
             collapseAllExpandedReviews();
 
-            if (isLast) {
-                // Smoothly move onto the appended firstClone (1 step)
-                track.scrollBy({ left: getStep(), behavior: "smooth" });
-                // teleport will happen automatically when scroll settles (your atEnd handler)
-                return;
-            }
+            const current = getActiveRealIndex();
+            const nextIndex = (current + 1) % reviews.length; // wrap around
 
-            goToRealIndex(current + 1, "smooth");
+            goToRealIndex(nextIndex, "smooth");
         }
 
         function goPrev() {
-            const current = getActiveRealIndex();
-            const isFirst = current === 0;
-
             collapseAllExpandedReviews();
 
-            if (isFirst) {
-                // Smoothly move onto the prepended lastClone (1 step left)
-                track.scrollBy({ left: -getStep(), behavior: "smooth" });
-                // teleport will happen automatically when scroll settles (your atStart handler)
-                return;
-            }
+            const current = getActiveRealIndex();
+            const prevIndex = (current - 1 + reviews.length) % reviews.length; // wrap around
 
-            goToRealIndex(current - 1, "smooth");
+            goToRealIndex(prevIndex, "smooth");
         }
 
 
@@ -175,7 +152,7 @@ fetch("src/data/testimonials.json")
             const trackRect = track.getBoundingClientRect();
             const trackCenter = trackRect.left + trackRect.width / 2;
 
-            // Real cards are 1.realCount (because 0 is lastClone)
+            // Real cards are 1..realCount (because 0 is lastClone)
             let bestIdx = 0;
             let bestDist = Infinity;
 
@@ -249,7 +226,7 @@ fetch("src/data/testimonials.json")
             resumeTimer = setTimeout(() => {
                 isPaused = false;
                 if (!autoTimer) startAutoScroll();
-            }, 100000); // resume after 100s idle
+            }, 30000); // resume after 30s idle
         }
 
         // Pause on common interactions
