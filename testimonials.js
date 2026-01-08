@@ -63,7 +63,7 @@ fetch("src/data/testimonials.json")
             track.scrollTo({ left: track.scrollLeft + delta, behavior });
         }
 
-        // Real index: 0..reviews.length-1
+        // Real index: 0.reviews.length-1
         function goToRealIndex(realIndex, behavior = "smooth") {
             const cards = track.querySelectorAll("article");
             const target = cards[realIndex + 1]; // +1 because cards[0] is lastClone
@@ -175,7 +175,7 @@ fetch("src/data/testimonials.json")
             const trackRect = track.getBoundingClientRect();
             const trackCenter = trackRect.left + trackRect.width / 2;
 
-            // Real cards are 1..realCount (because 0 is lastClone)
+            // Real cards are 1.realCount (because 0 is lastClone)
             let bestIdx = 0;
             let bestDist = Infinity;
 
@@ -289,19 +289,39 @@ fetch("src/data/testimonials.json")
 
             if (scrollEndTimer) clearTimeout(scrollEndTimer);
             scrollEndTimer = setTimeout(() => {
-                const cards = track.querySelectorAll("article");
+                const cards = Array.from(track.querySelectorAll("article"));
                 if (cards.length < 3) return;
 
                 const styles = getComputedStyle(track);
                 const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
                 const step = cards[1].getBoundingClientRect().width + gap;
 
-                const atStart = track.scrollLeft <= 1;
-                const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+                // Check which card is currently centered
+                const trackRect = track.getBoundingClientRect();
+                const trackCenter = trackRect.left + trackRect.width / 2;
 
-                if (atStart) jumpTo(step * (cards.length - 2)); // real last
-                if (atEnd) jumpTo(step);                        // real first
-            }, 80);
+                let centeredCard = null;
+                let minDist = Infinity;
+
+                cards.forEach((card) => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenter = rect.left + rect.width / 2;
+                    const dist = Math.abs(cardCenter - trackCenter);
+                    if (dist < minDist) {
+                        minDist = dist;
+                        centeredCard = card;
+                    }
+                });
+
+                // Only teleport if we're centered on a clone
+                if (centeredCard && centeredCard.dataset.clone === "last") {
+                    // We're on the lastClone (leftmost), jump to real last card
+                    jumpTo(step * (cards.length - 2));
+                } else if (centeredCard && centeredCard.dataset.clone === "first") {
+                    // We're on the firstClone (rightmost), jump to real first card
+                    jumpTo(step);
+                }
+            }, 150); // Increased timeout slightly for better detection
         });
 
 
@@ -443,7 +463,7 @@ function setupInfinite(track) {
 }
 
 
-// Basic HTML escaping so reviews can’t break your DOM
+// Basic HTML escaping so reviews can't break your DOM
 function escapeHtml(str) {
     return String(str)
         .replaceAll("&", "&amp;")
