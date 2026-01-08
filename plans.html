@@ -64,9 +64,10 @@
     <!-- Mobile Nav Overlay -->
     <div id="mobileMenu"
          class="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-md z-30 flex flex-col
-          items-center justify-center space-y-8 text-2xl font-semibold text-gray-800
+          items-center justify-start space-y-8 text-2xl font-semibold text-gray-800
           opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
     >
+        <img src="src/logowtext.svg" class="my-12" width="240" alt="logo with text">
         <a href="index.html" class="nav-link hover:text-gray-600" onclick="toggleMenu()">Home</a>
         <a href="plans.html" class="nav-link hover:text-gray-600" onclick="toggleMenu()">Floor Plans</a>
         <a href="gallery.html" class="nav-link hover:text-gray-600" onclick="toggleMenu()">Gallery</a>
@@ -99,7 +100,7 @@
     <div class="h-10"></div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 h-100 sm:h-100">
+    <footer class="bg-gray-900 h-120">
         <div class="max-w-7xl grid grid-cols-2 mx-auto items-start justify-between p-6">
             <!-- Address -->
             <div class="text-center text-white">
@@ -116,6 +117,18 @@
                 <h1 class="text-2xl md:text-3xl font-medium underline decoration-2">Contact</h1>
                 <p class="font-light md:text-xl">info@raystoneapts.com</p>
                 <p class="font-light md:text-xl">Call +1 (979) 221-2707</p>
+                <a href="https://www.facebook.com/raystoneapts"
+                   target="_blank"
+                   class="center transform hover:scale-105 transition-transform duration-300 mt-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-facebook-icon lucide-facebook text-gray-100"
+                    >
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                    <span class="ml-1 font-light md:text-xl">RaystoneApts</span>
+                </a>
             </div>
 
             <!-- Follow -->
@@ -158,8 +171,13 @@
                 </a>
             </div>
         </div>
-        <h1 class="text-center mx-auto max-w-6xl text-4xl md:text-6xl text-white mt-10">Raystone Apartments</h1>
-        <p class="text-center mx-auto mt-4 max-w-6xl text-xl text-white">
+
+        <!-- Logo and Copyright -->
+        <div class="center">
+            <img src="src/logowtext.svg" width="300" alt="logo with text">
+        </div>
+
+        <p class="text-center mx-auto mt-4 max-w-6xl text-xl text-white px-2">
             &copy; <span id="year"></span> BPX Capital Holdings LLC. All rights reserved.
         </p>
 
