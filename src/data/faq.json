@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "question": "How do I apply for an apartment?",
+    "answer": "Visit RentCafe to apply for an apartment.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "2",
+    "question": "What lease terms are available?",
+    "answer": "We offer flexible lease terms ranging from 6 to 18 months. Please contact our leasing office for specific availability and options.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "3",
+    "question": "Are utilities included?",
+    "answer": "For standard units, tenants are responsible for their own utility payments, including electricity, water, internet, and trash. For corporate units, utilities are included in the rent payment.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "4",
+    "question": "Is the community pet-friendly?",
+    "answer": "Yes, Raystone Apartment Homes is a pet-friendly community. Pets are welcome with a $250 pet deposit, a $250 non-refundable pet fee, and $25 monthly pet rent per pet. Residents also enjoy access to an on-site dog park, with dog waste stations conveniently located throughout the community.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "5",
+    "question": "Do you offer move-in specials or discounts?",
+    "answer": "Move-in specials or discounts may be available from time to time. Contact our leasing office for the most up-to-date information on current promotions.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "6",
+    "question": "How do I submit maintenance requests?",
+    "answer": "Maintenance requests can be submitted easily through the RentCafe\n            <a\n                href=\"https://www.rentcafe.com/residentservices/apartmentsforrent/userlogin.aspx\"\n                target=\"_blank\"\n                class=\"font-medium underline-2 hover:text-gray-800/50\"\n            >\n                resident portal</a>.\n            Our maintenance team responds promptly to requests and works efficiently to ensure issues are addressed as quickly as possible.",
+    "category": "leasing"
+  },
+
+  {
+    "id": "7",
+    "question": "What are your business hours?",
+    "answer": "Monday - Friday: 8:00 AM - 6:00 PM",
+    "category": "leasing"
+  }
+]

@@ -56,6 +56,14 @@ header {
     height: 100vh;
 }
 
+.underline-2 {
+    @apply underline underline-offset-2;
+}
+
+.underline-4 {
+    @apply underline underline-offset-4;
+}
+
 
 /* Styling for Contact - Country Codes*/
 #dropdown {
