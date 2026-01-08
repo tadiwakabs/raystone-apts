@@ -50,6 +50,69 @@ fetch("src/data/testimonials.json")
 
         setupInfinite(track);
 
+        function scrollToCard(cardEl, behavior = "smooth") {
+            if (!cardEl) return;
+
+            const trackRect = track.getBoundingClientRect();
+            const cardRect = cardEl.getBoundingClientRect();
+
+            const trackCenter = trackRect.left + trackRect.width / 2;
+            const cardCenter = cardRect.left + cardRect.width / 2;
+
+            const delta = cardCenter - trackCenter;
+            track.scrollTo({ left: track.scrollLeft + delta, behavior });
+        }
+
+        // Real index: 0..reviews.length-1
+        function goToRealIndex(realIndex, behavior = "smooth") {
+            const cards = track.querySelectorAll("article");
+            const target = cards[realIndex + 1]; // +1 because cards[0] is lastClone
+            collapseAllExpandedReviews();        // always collapse when switching
+            scrollToCard(target, behavior);
+        }
+
+        // Convenience: next/prev from whatever is centered
+        function goNext() {
+            const current = getActiveRealIndex();
+            const next = (current + 1) % reviews.length;
+            goToRealIndex(next, "smooth");
+        }
+
+        function goPrev() {
+            const current = getActiveRealIndex();
+            const prev = (current - 1 + reviews.length) % reviews.length;
+            goToRealIndex(prev, "smooth");
+        }
+
+
+        function collapseAllExpandedReviews() {
+            // Re-clamp any expanded text
+            track.querySelectorAll("p[id^='reviewText-']").forEach((p) => {
+                p.classList.add("clamp-4");
+            });
+
+            // Reset any toggled buttons
+            track.querySelectorAll("button[data-toggle]").forEach((btn) => {
+                btn.textContent = "Read more";
+            });
+        }
+
+        let lastActiveIndex = 0;
+        let collapseTimer = null;
+
+        function handleCardChangeCollapse() {
+            const current = getActiveRealIndex();
+            if (current !== lastActiveIndex) {
+                lastActiveIndex = current;
+                collapseAllExpandedReviews();
+            }
+        }
+
+        track.addEventListener("scroll", () => {
+            if (collapseTimer) clearTimeout(collapseTimer);
+            collapseTimer = setTimeout(handleCardChangeCollapse, 120); // runs after swipe settles
+        });
+
         // ====== Pagination Dots (synced to REAL index) ======
         const dotsWrap = document.getElementById("testimonialsDots");
         const realCount = reviews.length;
@@ -67,13 +130,7 @@ fetch("src/data/testimonials.json")
 
                 dot.addEventListener("click", () => {
                     pauseAutoScroll(true);
-
-                    // After setupInfinite: cards[0] = lastClone, cards[1..realCount] = real, last = firstClone
-                    const cards = track.querySelectorAll("article");
-                    const target = cards[i + 1]; // real card
-                    if (target) target.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-
-                    // resume a bit later
+                    goToRealIndex(i, "smooth");
                     resumeAutoScrollAfterIdle();
                 });
 
@@ -149,9 +206,10 @@ fetch("src/data/testimonials.json")
             stopAutoScroll();
             autoTimer = setInterval(() => {
                 if (isPaused) return;
-                track.scrollBy({ left: getStep(), behavior: "smooth" });
+                goNext();
             }, 5000);
         }
+
 
         function stopAutoScroll() {
             if (autoTimer) clearInterval(autoTimer);
@@ -169,7 +227,7 @@ fetch("src/data/testimonials.json")
             resumeTimer = setTimeout(() => {
                 isPaused = false;
                 if (!autoTimer) startAutoScroll();
-            }, 50000); // resume after 50s idle
+            }, 100000); // resume after 100s idle
         }
 
         // Pause on common interactions
@@ -250,12 +308,18 @@ fetch("src/data/testimonials.json")
         const prevBtn = document.getElementById("testimonialsPrev");
         const nextBtn = document.getElementById("testimonialsNext");
 
-        const scrollByCard = (dir) => {
-            // scroll roughly one card width + gap
-            const card = track.querySelector("article");
-            const amount = card ? card.getBoundingClientRect().width + 16 : 420;
-            track.scrollBy({ left: dir * amount, behavior: "smooth" });
-        };
+        if (prevBtn) prevBtn.addEventListener("click", () => {
+            pauseAutoScroll(true);
+            goPrev();
+            resumeAutoScrollAfterIdle();
+        });
+
+        if (nextBtn) nextBtn.addEventListener("click", () => {
+            pauseAutoScroll(true);
+            goNext();
+            resumeAutoScrollAfterIdle();
+        });
+
 
         if (prevBtn) prevBtn.addEventListener("click", () => scrollByCard(-1));
         if (nextBtn) nextBtn.addEventListener("click", () => scrollByCard(1));
