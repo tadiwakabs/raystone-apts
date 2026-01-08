@@ -56,6 +56,14 @@ header {
     height: 100vh;
 }
 
+.clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
 .underline-2 {
     @apply underline underline-offset-2;
 }
