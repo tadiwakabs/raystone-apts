@@ -72,17 +72,46 @@ fetch("src/data/testimonials.json")
         }
 
         // Convenience: next/prev from whatever is centered
+        function getStep() {
+            const cards = track.querySelectorAll("article");
+            if (cards.length < 3) return 420;
+            const styles = getComputedStyle(track);
+            const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
+            return cards[1].getBoundingClientRect().width + gap; // one card step
+        }
+
         function goNext() {
             const current = getActiveRealIndex();
-            const next = (current + 1) % reviews.length;
-            goToRealIndex(next, "smooth");
+            const isLast = current === reviews.length - 1;
+
+            collapseAllExpandedReviews();
+
+            if (isLast) {
+                // Smoothly move onto the appended firstClone (1 step)
+                track.scrollBy({ left: getStep(), behavior: "smooth" });
+                // teleport will happen automatically when scroll settles (your atEnd handler)
+                return;
+            }
+
+            goToRealIndex(current + 1, "smooth");
         }
 
         function goPrev() {
             const current = getActiveRealIndex();
-            const prev = (current - 1 + reviews.length) % reviews.length;
-            goToRealIndex(prev, "smooth");
+            const isFirst = current === 0;
+
+            collapseAllExpandedReviews();
+
+            if (isFirst) {
+                // Smoothly move onto the prepended lastClone (1 step left)
+                track.scrollBy({ left: -getStep(), behavior: "smooth" });
+                // teleport will happen automatically when scroll settles (your atStart handler)
+                return;
+            }
+
+            goToRealIndex(current - 1, "smooth");
         }
+
 
 
         function collapseAllExpandedReviews() {
@@ -194,13 +223,6 @@ fetch("src/data/testimonials.json")
         let resumeTimer = null;
         let isPaused = false;
 
-        function getStep() {
-            const cards = track.querySelectorAll("article");
-            if (cards.length < 3) return 420;
-            const styles = getComputedStyle(track);
-            const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
-            return cards[1].getBoundingClientRect().width + gap; // cards[1] = first REAL card
-        }
 
         function startAutoScroll() {
             stopAutoScroll();
@@ -251,37 +273,35 @@ fetch("src/data/testimonials.json")
 
 
         let isJumping = false;
+        let scrollEndTimer = null;
+
+        function jumpTo(left) {
+            isJumping = true;
+            const prev = track.style.scrollBehavior;
+            track.style.scrollBehavior = "auto";
+            track.scrollLeft = left;
+            track.style.scrollBehavior = prev || "";
+            requestAnimationFrame(() => (isJumping = false));
+        }
 
         track.addEventListener("scroll", () => {
             if (isJumping) return;
 
-            const cards = track.querySelectorAll("article");
-            if (cards.length < 3) return; // needs clones
+            if (scrollEndTimer) clearTimeout(scrollEndTimer);
+            scrollEndTimer = setTimeout(() => {
+                const cards = track.querySelectorAll("article");
+                if (cards.length < 3) return;
 
-            const styles = getComputedStyle(track);
-            const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
+                const styles = getComputedStyle(track);
+                const gap = parseFloat(styles.gap || styles.columnGap || "16") || 16;
+                const step = cards[1].getBoundingClientRect().width + gap;
 
-            // after setupInfinite, cards[0] is lastClone, cards[1] is firstReal
-            const step = cards[1].getBoundingClientRect().width + gap;
+                const atStart = track.scrollLeft <= 1;
+                const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
 
-            // total scroll width is sometimes not perfectly divisible, so use near-edge checks
-            const atStart = track.scrollLeft <= 1;
-            const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
-
-            // If we’re at the very start (lastClone), jump to real last
-            if (atStart) {
-                isJumping = true;
-                track.scrollLeft = step * (cards.length - 2);
-                requestAnimationFrame(() => (isJumping = false));
-                return;
-            }
-
-            // If we’re at the very end (firstClone), jump to real first
-            if (atEnd) {
-                isJumping = true;
-                track.scrollLeft = step;
-                requestAnimationFrame(() => (isJumping = false));
-            }
+                if (atStart) jumpTo(step * (cards.length - 2)); // real last
+                if (atEnd) jumpTo(step);                        // real first
+            }, 80);
         });
 
 
@@ -319,10 +339,6 @@ fetch("src/data/testimonials.json")
             goNext();
             resumeAutoScrollAfterIdle();
         });
-
-
-        if (prevBtn) prevBtn.addEventListener("click", () => scrollByCard(-1));
-        if (nextBtn) nextBtn.addEventListener("click", () => scrollByCard(1));
     })
     .catch((err) => console.error("Error loading testimonials:", err));
 
