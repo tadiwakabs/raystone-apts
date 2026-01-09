@@ -2,9 +2,9 @@
 const form = document.getElementById("contactForm");
 const popup = document.getElementById("thankYouPopup");
 
-// Appwrite configuration
+// Appwrite SMTP configuration
 const APPWRITE_ENDPOINT = "https://api.tadzz.net/v1";
-const APPWRITE_PROJECT_ID = "69580e1400157f0934ec"; // Get this from Appwrite Console → Project Settings
+const APPWRITE_PROJECT_ID = "69580e1400157f0934ec";
 const FUNCTION_ID = "69616efb002d83535a9d";
 
 form.addEventListener("submit", async function (e) {
@@ -12,6 +12,9 @@ form.addEventListener("submit", async function (e) {
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
+
+    // Add the current page URL to the form data
+    data._origin = window.location.href;
 
     try {
         // Direct API call without authentication

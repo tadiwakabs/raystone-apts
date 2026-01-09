@@ -364,8 +364,14 @@
   .mr-16 {
     margin-right: calc(var(--spacing) * 16);
   }
+  .mr-26 {
+    margin-right: calc(var(--spacing) * 26);
+  }
   .mr-36 {
     margin-right: calc(var(--spacing) * 36);
+  }
+  .mr-46 {
+    margin-right: calc(var(--spacing) * 46);
   }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);

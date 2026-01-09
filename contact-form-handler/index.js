@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 
+const logoUrl = process.env.LOGO_URL || "https://raystoneapts.com/src/logo.png";
+
 export default async ({ req, res, log, error }) => {
     try {
         log('Function started');
@@ -60,15 +62,22 @@ export default async ({ req, res, log, error }) => {
 
         log('Transport configured, preparing email');
 
+        // Get the origin URL from the request (where the form was submitted from)
+        const websiteUrl = data._origin || req.headers['origin'] || req.headers['referer'] || 'Website';
+
         // Prepare email content
         const emailHtml = `
       <!DOCTYPE html>
-      <html>
+      <html lang="en">
       <head>
         <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background-color: #1f2937; color: white; padding: 20px; text-align: center; }
+          .header { background-color: #1f2937; color: white; padding: 30px 20px; text-align: center; border-bottom: 3px solid #374151; }
+          .logo { max-width: 80px; height: auto; margin-bottom: 15px; }
+          .header h2 { margin: 0; }
+          .from-section { background-color: #f3f4f6; padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; }
+          .from-section strong { color: #1f2937; }
           .content { background-color: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; }
           .field { margin-bottom: 15px; }
           .label { font-weight: bold; color: #1f2937; }
@@ -79,7 +88,11 @@ export default async ({ req, res, log, error }) => {
       <body>
         <div class="container">
           <div class="header">
+            <img src="${logoUrl}" alt="Logo" class="logo">
             <h2>New Contact Form Submission</h2>
+          </div>
+          <div class="from-section">
+            <strong>From:</strong> ${websiteUrl}
           </div>
           <div class="content">
             ${data['First Name'] || data['Last Name'] ? `
@@ -91,7 +104,7 @@ export default async ({ req, res, log, error }) => {
             
             <div class="field">
               <div class="label">Email:</div>
-              <div class="value">${data.Email}</div>
+              <div class="value"><a href="mailto:${data.Email}">${data.Email}</a></div>
             </div>
             
             ${data['Country Code'] || data.Phone ? `
@@ -108,7 +121,8 @@ export default async ({ req, res, log, error }) => {
             
             <div class="field">
               <div class="label">Submitted:</div>
-              <div class="value">${new Date().toLocaleString()}</div>
+              <div class="value">${new Date().toLocaleString('en-US', 
+            { timeZone: 'America/Chicago', dateStyle: 'short', timeStyle: 'short' })}</div>
             </div>
           </div>
         </div>
@@ -118,6 +132,8 @@ export default async ({ req, res, log, error }) => {
 
         const emailText = `
 New Contact Form Submission
+
+From: ${websiteUrl}
 
 ${data['First Name'] || data['Last Name'] ? `Name: ${data['First Name'] || ''} ${data['Last Name'] || ''}\n` : ''}
 Email: ${data.Email}
@@ -131,12 +147,11 @@ Submitted: ${new Date().toLocaleString()}
 
         log('Sending email...');
 
-        // Send email
         // Support multiple recipient emails (comma-separated)
         const recipients = process.env.RECIPIENT_EMAIL.split(',').map(email => email.trim()).join(',');
 
         await transporter.sendMail({
-            from: `"Website Contact Form" <${process.env.GMAIL_USER}>`,
+            from: `"Raystone Contact Form" <${process.env.GMAIL_USER}>`,
             to: recipients,
             replyTo: data.Email,
             subject: `New Contact: ${data['First Name'] || data.Email}`,
