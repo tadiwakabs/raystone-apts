@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .forEach((c) => {
                         const div = document.createElement("div");
                         div.className =
-                            "flex items-center justify-between px-3 py-2 hover:bg-blue-100 cursor-pointer text-blue-800";
+                            "flex items-center justify-between px-3 py-2 hover:bg-gray-200 cursor-pointer text-gray-800";
                         div.innerHTML = `
                             <div class="flex items-center space-x-3">
                               <img src="https://flagcdn.com/24x18/${c.flag.toLowerCase()}.png"

@@ -14,7 +14,7 @@ header {
 }
 
 .card {
-    @apply bg-[#e7e8ed] shadow;
+    @apply bg-white shadow-sm border border-gray-200 rounded-xl hover:shadow-md;
 }
 
 @utility card-hover {
@@ -99,13 +99,13 @@ header {
 }
 
 #countryList::-webkit-scrollbar-thumb {
-    background-color: #1e40af; /* Tailwind blue-800 */
+    background-color: #4b5563; /* Tailwind gray-800 */
     border-radius: 8px;
     border: 2px solid #f9fafb; /* white border for contrast */
 }
 
 #countryList::-webkit-scrollbar-thumb:hover {
-    background-color: #1d4ed8; /* Tailwind green-700 */
+    background-color: #4b5563; /* Tailwind gray-800 */
 }
 
 #countryList::-webkit-scrollbar-track {
@@ -116,5 +116,5 @@ header {
 /* Firefox scrollbar styling */
 #countryList {
     scrollbar-width: thin;
-    scrollbar-color: #1e40af #f3f4f6; /* thumb, track */
+    scrollbar-color: #4b5563 #f3f4f6; /* thumb, track */
 }

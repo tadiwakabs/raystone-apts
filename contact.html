@@ -99,21 +99,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         <!-- Cards -->
         <div class="flex flex-col justify-center space-y-12 max-md:mt-6">
-            <!-- WhatsApp Card -->
-            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap justify-center items-center gap-2
-            md:gap-4 px-2 md:px-6"
-            >
-                <img class="w-10" src="src/images/whatsapp.svg" alt="WhatsApp Logo">
-                <span class="font-medium md:text-xl text-gray-800">WhatsApp </span>
-                <a href="https://wa.me/27685016063?text=Hello%2084%20Sea%20Lodge%2C%20I%27d%20like%20to%20book%20a%20stay."
-                   class="font-medium md:text-xl text-gray-800"
-                   target="_blank"
-                >
-                    +27 68 501 6063
-                </a>
-            </div>
             <!-- Phone Card -->
-            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap items-center justify-center
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-36 mx-12 flex flex-wrap items-center justify-center
             max-md:gap-2 max-md:px-2 md:space-x-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -126,13 +113,13 @@
                 </svg>
                 <div class="space-x-6 text-center max-md:ml-2">
                     <span class="font-medium md:text-xl text-gray-800">Phone </span>
-                    <a href="tel:+263783106946" class="font-medium md:text-xl text-gray-800">
-                        +27 68 501 6063
+                    <a href="tel:+19792212707" class="font-medium md:text-xl text-gray-800">
+                        +1 (979) 221-2707
                     </a>
                 </div>
             </div>
             <!-- Email Card -->
-            <div class="card card-hover rounded-lg w-auto h-24 md:h-32 mx-12 flex flex-wrap items-center justify-center gap-2
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-36 mx-12 flex flex-wrap items-center justify-center gap-2
             md:gap-4 px-2 md:px-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -142,7 +129,25 @@
                     <rect x="2" y="4" width="20" height="16" rx="2"/>
                 </svg>
                 <span class="font-medium md:text-xl text-gray-800">Email</span>
-                <a href="mailto:stay@84Sealodge.com" class="font-medium md:text-xl text-gray-800">stay@84SeaLodge.com </a>
+                <a href="mailto:info@raystoneapts.com" class="font-medium md:text-xl text-gray-800">info@raystoneapts.com </a>
+            </div>
+            <!-- Facebook Card -->
+            <div class="card card-hover rounded-lg w-auto h-24 md:h-36 mx-12 flex flex-wrap justify-center items-center gap-2
+            md:gap-6 px-2 md:px-6"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="lucide lucide-facebook-icon lucide-facebook text-gray-800 mr-4"
+                >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                <span class="font-medium md:text-xl text-gray-800 mr-2">Facebook </span>
+                <a href="https://www.facebook.com/raystoneapts"
+                   class="font-medium md:text-xl text-gray-800 justify-self-end"
+                   target="_blank"
+                >
+                    RaystoneApts
+                </a>
             </div>
         </div>
 
@@ -200,9 +205,9 @@
                                      class="flex items-center justify-between px-3 py-2 cursor-pointer w-28
                                      text-gray-800 relative border-r border-r-gray-800 bg-gray-300">
                                     <span id="selectedFlag">
-                                        <img src="https://flagcdn.com/24x18/za.png" alt="South Africa" class="w-10 h-4">
+                                        <img src="https://flagcdn.com/24x18/us.png" alt="US" class="w-8 h-4 pr-1">
                                     </span>
-                                    <span id="selectedCode">+27</span>
+                                    <span id="selectedCode">+1</span>
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          class="w-4 h-4 ml-2 text-gray-800" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor">
@@ -236,7 +241,7 @@
                             <p class="px-4"> Message <span class="text-red-700">*</span></p>
                             <label for="message">
                                 <textarea id="message" name="Message" placeholder="Message"
-                                          class="w-full h-40 px-4 py-3 mt-4 border border-gray-800 text-black"
+                                          class="w-full px-4 py-3 mt-4 border border-gray-800 text-black min-h-32 max-h-80"
                                           required></textarea>
                             </label>
                         </div>
@@ -354,7 +359,7 @@
         </div>
 
         <p class="text-center mx-auto mt-4 max-w-6xl text-xl text-white px-2">
-            &copy; <span id="year"></span> BPX Capital Holdings LLC. All rights reserved.
+            &copy; <span id="year"></span> Raystone Apartment Homes. All rights reserved.
         </p>
 
     </footer>
