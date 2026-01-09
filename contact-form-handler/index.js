@@ -1,83 +1,69 @@
-import { Client, Databases } from 'node-appwrite';
 import nodemailer from 'nodemailer';
 
 export default async ({ req, res, log, error }) => {
-    // Only allow POST requests
-    if (req.method !== 'POST') {
-        return res.json({ success: false, message: 'Method not allowed' }, 405);
-    }
-
     try {
-        // Parse the request body
-        const data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        log('Function started');
 
-        log('Form submission received');
+        // Parse request body
+        let data;
+        try {
+            data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
 
-        // Honeypot spam protection
+            // If body is wrapped in another layer
+            if (data.body && typeof data.body === 'string') {
+                data = JSON.parse(data.body);
+            }
+
+            log('Data parsed: ' + JSON.stringify(data));
+        } catch (e) {
+            error('Failed to parse body: ' + e.message);
+            return res.json({ success: false, message: 'Invalid request data' }, 400);
+        }
+
+        // Honeypot check
         if (data._gotcha || data._honeypot) {
-            log('Spam detected via honeypot');
+            log('Spam detected');
             return res.json({ success: false, message: 'Spam detected' }, 400);
         }
 
         // Validate required fields
         if (!data.Email || !data.Message) {
+            log('Missing required fields');
             return res.json({
                 success: false,
                 message: 'Email and Message are required'
             }, 400);
         }
 
-        // Basic email validation
+        // Validate email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.Email)) {
+            log('Invalid email format');
             return res.json({
                 success: false,
                 message: 'Invalid email address'
             }, 400);
         }
 
-        // Optional: Store in Appwrite Database
-        // Uncomment if you want to save submissions
-        /*
-        const client = new Client()
-          .setEndpoint(process.env.APPWRITE_ENDPOINT)
-          .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-          .setKey(process.env.APPWRITE_API_KEY);
-
-        const databases = new Databases(client);
-
-        await databases.createDocument(
-          process.env.APPWRITE_DATABASE_ID,
-          process.env.APPWRITE_COLLECTION_ID,
-          'unique()',
-          {
-            firstName: data['First Name'] || '',
-            lastName: data['Last Name'] || '',
-            email: data.Email,
-            phone: data.Phone || '',
-            countryCode: data['Country Code'] || '',
-            message: data.Message,
-            submittedAt: new Date().toISOString()
-          }
-        );
-        log('Saved to database');
-        */
+        log('Validation passed, setting up email transport');
 
         // Configure Gmail SMTP
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
-            secure: false, // use TLS
+            secure: false,
             auth: {
                 user: process.env.GMAIL_USER,
                 pass: process.env.GMAIL_APP_PASSWORD
             }
         });
 
+        log('Transport configured, preparing email');
+
         // Prepare email content
         const emailHtml = `
       <!DOCTYPE html>
-      <html lang="en">
+      <html>
       <head>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
@@ -130,7 +116,6 @@ export default async ({ req, res, log, error }) => {
       </html>
     `;
 
-        // Plain text version for email clients that don't support HTML
         const emailText = `
 New Contact Form Submission
 
@@ -144,12 +129,17 @@ ${data.Message}
 Submitted: ${new Date().toLocaleString()}
     `;
 
+        log('Sending email...');
+
         // Send email
+        // Support multiple recipient emails (comma-separated)
+        const recipients = process.env.RECIPIENT_EMAIL.split(',').map(email => email.trim()).join(',');
+
         await transporter.sendMail({
             from: `"Website Contact Form" <${process.env.GMAIL_USER}>`,
-            to: process.env.RECIPIENT_EMAIL,
+            to: recipients,
             replyTo: data.Email,
-            subject: `New Contact Form Submission from ${data['First Name'] || data.Email}`,
+            subject: `New Contact: ${data['First Name'] || data.Email}`,
             text: emailText,
             html: emailHtml
         });
@@ -159,13 +149,14 @@ Submitted: ${new Date().toLocaleString()}
         return res.json({
             success: true,
             message: 'Form submitted successfully'
-        });
+        }, 200);
 
     } catch (err) {
-        error(`Error processing form: ${err.message}`);
+        error('Error: ' + err.message);
+        error('Stack: ' + err.stack);
         return res.json({
             success: false,
-            message: 'An error occurred while processing your submission'
+            message: 'Server error: ' + err.message
         }, 500);
     }
 };
