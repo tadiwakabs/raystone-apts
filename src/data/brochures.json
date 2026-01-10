@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Floor Plans",
+    "link": "src/brochures/Brochure.pdf",
+    "description": "Download our full brochure with floor plans and community information.",
+    "previewImage": "src/brochures/preview1.png"
+  },
+
+  {
+    "name": "Corporate Floor Plans",
+    "link": "src/brochures/Corporate Housing Brochure.pdf",
+    "description": "Download our corporate housing brochure with detailed information about corporate housing.",
+    "previewImage": "src/brochures/preview2.png"
+  }
+
+]

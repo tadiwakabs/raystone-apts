@@ -5,7 +5,8 @@
     "price": 1665,
     "image": "src/images/Raystone/The Pelican 3 BR 2 Bath.png",
     "planId": "pelican",
-    "galleryId": "pelican-g"
+    "galleryId": "pelican-g",
+    "descriptionLong": ""
   },
   {
     "name": "The Falcon",
@@ -13,7 +14,8 @@
     "price": 1415,
     "image": "src/images/Raystone/The Falcon 2 BR 2 Bath.png",
     "planId": "falcon",
-    "galleryId": "falcon-g"
+    "galleryId": "falcon-g",
+    "descriptionLong": ""
   },
   {
     "name": "The Raven",
@@ -21,7 +23,8 @@
     "price": 1465,
     "image": "src/images/Raystone/The Raven 2 BR 2 Bath.png",
     "planId": "raven",
-    "galleryId": "raven-g"
+    "galleryId": "raven-g",
+    "descriptionLong": ""
   },
   {
     "name": "The Sparrow",
@@ -29,6 +32,7 @@
     "price": 1615,
     "image": "src/images/Raystone/The Sparrow 3 BR 2 Bath.png",
     "planId": "sparrow",
-    "galleryId": "sparrow-g"
+    "galleryId": "sparrow-g",
+    "descriptionLong": ""
   }
 ]
