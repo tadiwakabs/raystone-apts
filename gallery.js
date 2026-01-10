@@ -58,7 +58,7 @@ function renderGallerySections(sections) {
       </button>
 
       <div id="${escapeAttr(expandableId)}"
-           class="transition-all duration-500 ease-in-out overflow-hidden max-h-[1520px]
+           class="transition-all duration-500 ease-in-out overflow-hidden max-h-500
                   border-l border-r border-b border-gray-800/20"
       >
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
@@ -76,7 +76,7 @@ function renderGallerySections(sections) {
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
           <button
-            class="flex items-center justify-center text-white text-lg sm:text-2xl bg-gray-800 px-10 py-3
+            class="center text-white text-lg sm:text-2xl bg-gray-800 px-10 py-3
                    mt-2 rounded-md w-full sm:w-auto hover:bg-gray-200 hover:text-gray-800 font-medium
                    transition-colors duration-300 ease-in-out cursor-pointer"
             onclick="openLightbox('${escapeAttr(sec.group)}', 0)"
@@ -191,3 +191,43 @@ function scrollToHashIfPresent() {
         }
     }
 }
+
+// Video Modal
+function openVideoModal() {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("videoEl");
+
+    // use relative path (more reliable than "/src/...")
+    video.src = "src/images/Raystone/raystonevid.mp4";
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    // start playback (may be blocked if not user-initiated; but this is from a click so usually fine)
+    video.currentTime = 0;
+    video.play().catch(() => {
+        // autoplay might still be blocked; user can press play
+    });
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("videoEl");
+
+    video.pause();
+    video.removeAttribute("src"); // fully unload
+    video.load();
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeVideoModal();
+});
+
+document.getElementById("videoModal")?.addEventListener("click", (e) => {
+    if (e.target.id === "videoModal") closeVideoModal();
+});
+
+

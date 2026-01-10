@@ -1,6 +1,6 @@
 [
   {
-    "name": "Floor Plans",
+    "name": "Standard Floor Plans",
     "link": "src/brochures/Brochure.pdf",
     "description": "Download our full brochure with floor plans and community information.",
     "previewImage": "src/brochures/preview1.png"

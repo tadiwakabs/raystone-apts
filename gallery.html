@@ -91,9 +91,21 @@
 </div>
 
 <!-- Room Gallery -->
-    <div class="px-4 max-w-6xl mx-auto">
-        <div id="gallerySections"></div>
-    </div>
+<div class="px-4 max-w-6xl mx-auto">
+    <div id="gallerySections"></div>
+</div>
+
+<div class="flex-col center mt-8">
+    <p class="text-gray-800 text-lg sm:text-xl font-medium">Interested in a video instead?</p>
+    <button
+            onclick="openVideoModal()"
+            class="text-white text-lg sm:text-2xl bg-gray-800 px-10 py-3
+                   mt-2 rounded-md sm:w-auto hover:bg-gray-200 hover:text-gray-800 font-medium
+                   transition-colors duration-300 ease-in-out cursor-pointer mx-8"
+    >
+        Watch Video Tour
+    </button>
+</div>
 
 
 
@@ -153,6 +165,25 @@
     </div>
 </div>
 
+<!-- Video Modal -->
+<div id="videoModal"
+     class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+
+    <button
+            onclick="closeVideoModal()"
+            class="absolute top-4 right-4 text-white text-4xl cursor-pointer">&times;</button>
+
+    <div class="w-full max-w-4xl">
+        <video
+                id="videoEl"
+                class="w-full aspect-video rounded-xl bg-black"
+                controls
+                playsinline
+                preload="metadata"
+        >
+        </video>
+    </div>
+</div>
 
 
 <div class="h-20"></div>
