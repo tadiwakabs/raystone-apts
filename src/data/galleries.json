@@ -19,7 +19,7 @@
       { "src": "src/images/Raystone/Pelican/Bath 2.jpg", "name": "The Pelican - Bathroom" },
       { "src": "src/images/Raystone/Pelican/Bath 5.jpg", "name": "The Pelican - Bathroom" },
       { "src": "src/images/Raystone/Pelican/Laundry 1.JPG", "name": "The Pelican - Laundry" },
-      { "src": "src/images/Raystone/Pelican/Laundry 2.JPG", "name": "The Pelican - Laundry" },
+      { "src": "src/images/Raystone/Pelican/Laundry 2.jpg", "name": "The Pelican - Laundry" },
       { "src": "src/images/Raystone/Pelican/Hallway.jpg", "name": "The Pelican - Hallway" }
     ]
   },
@@ -29,17 +29,17 @@
     "title": "The Falcon",
     "group": "falcon",
     "images": [
-      { "src": "src/images/Raystone/Falcon/Living 1.jpg", "name": "The Falcon - Living Area" },
-      { "src": "src/images/Raystone/Falcon/Living 3.jpg", "name": "The Falcon - Living Area" },
-      { "src": "src/images/Raystone/Falcon/Living 4.jpg", "name": "The Falcon - Living Area" },
+      { "src": "src/images/Raystone/Falcon/Living 1.JPG", "name": "The Falcon - Living Area" },
+      { "src": "src/images/Raystone/Falcon/Living 3.JPG", "name": "The Falcon - Living Area" },
+      { "src": "src/images/Raystone/Falcon/Living 4.JPG", "name": "The Falcon - Living Area" },
       { "src": "src/images/Raystone/Falcon/Kitchen 1.JPG", "name": "The Falcon - Kitchen" },
       { "src": "src/images/Raystone/Falcon/Dining.JPG", "name": "The Falcon - Dining Area" },
       { "src": "src/images/Raystone/Falcon/Bedroom Master.JPG", "name": "The Falcon - Master Bedroom" },
       { "src": "src/images/Raystone/Falcon/Bedroom.JPG", "name": "The Falcon - Bedroom" },
       { "src": "src/images/Raystone/Falcon/Bedroom 2.JPG", "name": "The Falcon - Bedroom" },
       { "src": "src/images/Raystone/Falcon/Bath 1.JPG", "name": "The Falcon - Bathroom" },
-      { "src": "src/images/Raystone/Falcon/Bath 3.jpg", "name": "The Falcon - Bathroom" },
-      { "src": "src/images/Raystone/Falcon/Bath 4.jpg", "name": "The Falcon - Bathroom" },
+      { "src": "src/images/Raystone/Falcon/Bath 3.JPG", "name": "The Falcon - Bathroom" },
+      { "src": "src/images/Raystone/Falcon/Bath 4.JPG", "name": "The Falcon - Bathroom" },
       { "src": "src/images/Raystone/Falcon/Laundry.JPG", "name": "The Falcon - Laundry" },
       { "src": "src/images/Raystone/Falcon/Hallway.JPG", "name": "The Falcon - Hallway" }
     ]
