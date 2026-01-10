@@ -10,20 +10,6 @@
     <link href="./dist/output.css" rel="stylesheet">
     <script src="index.js" defer></script>
     <script src="gallery.js" defer></script>
-    <script>
-        // Smooth scroll if a hash is present in the URL
-        document.addEventListener("DOMContentLoaded", () => {
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    // Wait briefly to ensure layout is ready
-                    setTimeout(() => {
-                        target.scrollIntoView({ behavior: "smooth" });
-                    }, 300);
-                }
-            }
-        });
-    </script>
 </head>
 <!-- Google tag (gtag.js) -->
 
@@ -94,184 +80,20 @@
 
 <div class="pt-20">
 <!-- Title -->
-<div class="flex items-center justify-center h-40 px-4 max-w-6xl mx-auto">
-    <h1 class="text-5xl md:text-7xl font-bold text-blue-900 text-center">The Sea Lodge Experience</h1>
+<div class="flex items-center justify-center h-20 md:h-40 px-4 max-w-6xl mx-auto">
+    <h1 class="text-[30px] md:text-6xl font-bold text-gray-900 text-center">The Raystone Experience</h1>
 </div>
 
 
 <!-- Heading -->
 <div class="max-w-6xl mx-auto flex items-center justify-center">
-    <h1 class="text-4xl font-semibold text-blue-800 px-4 mt-4">Photo Gallery</h1>
+    <h1 class="text-[28px] md:text-4xl font-semibold text-gray-800 px-4">Photo Gallery</h1>
 </div>
 
 <!-- Room Gallery -->
-<div class="px-4 max-w-6xl mx-auto">
-
-    <div id="interior-g" class="h-16"></div>
-    <!-- Interior -->
-    <section class="max-w-6xl mx-auto px-4 py-0.5 mt-4">
-        <!-- Toggle button -->
-        <button
-                onclick="toggleSection('expandableSectionInterior', 'arrowIconInterior')"
-                class="h-20 w-full border border-x-blue-50/0 flex items-center justify-between text-blue-800
-                px-4 py-2 select-none transform hover:scale-102 transition-transform duration-300"
-        >
-            <span class="text-2xl md:text-3xl">Interior</span>
-            <!-- Arrow icon -->
-            <svg id="arrowIconInterior" class="w-5 h-5 transform transition-transform duration-300 rotate-180"
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 9l-7 7-7-7" />
-            </svg>
-        </button>
-
-        <!-- Collapsible content -->
-        <div id="expandableSectionInterior"
-             class="transition-all duration-500 ease-in-out overflow-hidden max-h-500
-                  border-l border-r border-b border-blue-800">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/bedroom1-1.jpg" alt="Bedroom 1"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 0)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/kitchen-1.jpg" alt="Kitchen"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 5)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/bathroom1.jpeg" alt="Bathroom"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 10)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/living-3.jpg" alt="Living Room"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 14)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/dining-2.jpg" alt="Dining Area"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 16)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/balcony-1.jpg" alt="Balcony"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('interior', 17)"
-                    />
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
-                <a
-                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800 px-10 py-3
-                        mt-4 rounded-md w-full sm:w-auto hover:bg-blue-100 hover:text-blue-600 font-medium
-                        transition-colors duration-300 ease-in-out cursor-pointer"
-                        onclick="openLightbox('interior', 0)"
-                >
-                    View All
-                </a>
-                <a
-                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
-                               px-8 py-3 mt-4 rounded-md w-full sm:w-auto
-                               hover:bg-blue-100 hover:text-blue-600 font-medium
-                               transition-colors duration-300 ease-in-out"
-                        href="https://book.nightsbridge.com/23664?bbrtid=91"
-                        target="_blank"
-                >
-                    Book Now
-                </a>
-            </div>
-        </div>
-
-    </section>
-
-
-</div>
-
-<!-- Exterior Gallery -->
-<div class="px-4 max-w-6xl mx-auto mt-24">
-
-    <!-- Exterior -->
-    <section class="max-w-6xl mx-auto px-4 py-0.5 mt-4">
-        <!-- Toggle button -->
-        <button
-                onclick="toggleSection('expandableSectionExterior', 'arrowIconExterior')"
-                class="h-20 w-full border border-x-blue-50/0 flex items-center justify-between text-blue-800
-                px-4 py-2 select-none transform hover:scale-102 transition-transform duration-300"
-        >
-            <span class="text-3xl">Exterior</span>
-            <!-- Arrow icon -->
-            <svg id="arrowIconExterior" class="w-5 h-5 transform transition-transform duration-300 rotate-180"
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 9l-7 7-7-7" />
-            </svg>
-        </button>
-
-        <!-- Collapsible content -->
-        <div id="expandableSectionExterior"
-             class="transition-all duration-500 ease-in-out overflow-hidden max-h-500
-                  border-l border-r border-b border-blue-800">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/pool-1.jpg" alt="Pool"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('exterior', 0)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/parking2.jpg" alt="Designated Parking"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('exterior', 4)"
-                    />
-                </div>
-                <div class="aspect-[4/3]">
-                    <img
-                            src="src/images/sealodgepics/sealodgesign.jpg" alt="Entrance"
-                            class="w-full h-full object-cover cursor-pointer card-hover"
-                            onclick="openLightbox('exterior', 6)"
-                    />
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
-                <a
-                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
-                                   px-10 py-3 mt-4 rounded-md w-full sm:w-auto
-                                   hover:bg-blue-100 hover:text-blue-600 font-medium
-                                   transition-colors duration-300 ease-in-out cursor-pointer"
-                        onclick="openLightbox('exterior', 0)"
-                >
-                    View All
-                </a>
-                <a
-                        class="flex items-center justify-center text-white text-lg sm:text-2xl bg-blue-800
-                               px-8 py-3 mt-4 rounded-md w-full sm:w-auto
-                               hover:bg-blue-100 hover:text-blue-600 font-medium
-                               transition-colors duration-300 ease-in-out"
-                        href="https://book.nightsbridge.com/23664?bbrtid=91"
-                        target="_blank"
-                >
-                    Book Now
-                </a>
-            </div>
-        </div>
-
-    </section>
-</div>
+    <div class="px-4 max-w-6xl mx-auto">
+        <div id="gallerySections"></div>
+    </div>
 
 
 
@@ -304,12 +126,12 @@
         <!-- Prev Button -->
         <button
             class="prevBtn absolute top-1/2 left-4 -translate-y-1/2 flex items-center justify-center w-10 h-10
-                bg-gray-100 border border-blue-800 rounded-full shadow cursor-pointer hover:bg-blue-800
+                bg-gray-100 border border-gray-800 rounded-full shadow cursor-pointer hover:bg-gray-800
                 transition-colors"
             onclick="prevImage()"
         >
             <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-5 h-5 text-blue-800 hover:text-white"
+                 class="w-5 h-5 text-gray-800 hover:text-white"
                  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-6-7 6-7" />
             </svg>
@@ -318,12 +140,12 @@
         <!-- Next Button -->
         <button
             class="nextBtn absolute top-1/2 right-4 -translate-y-1/2 flex items-center justify-center w-10 h-10
-                bg-gray-100 border border-blue-800 rounded-full shadow cursor-pointer hover:bg-blue-800
+                bg-gray-100 border border-gray-800 rounded-full shadow cursor-pointer hover:bg-gray-800
                 transition-colors"
             onclick="nextImage()"
         >
             <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-5 h-5 text-blue-800 hover:text-white"
+                 class="w-5 h-5 text-gray-800 hover:text-white"
                  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l6 7-6 7" />
             </svg>

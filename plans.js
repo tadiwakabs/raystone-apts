@@ -20,7 +20,7 @@ fetch("src/data/plans.json")
                 "A thoughtfully designed layout with modern finishes and comfortable living space.";
 
             card.innerHTML = `
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div id=${escapeHtml(p.planId)} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           <!-- Text -->
           <div class="lg:col-span-5">
             <div class="flex items-start justify-between gap-4">
@@ -81,6 +81,7 @@ fetch("src/data/plans.json")
 
             list.appendChild(card);
         });
+        scrollToHashIfPresent();
 
         // Modal wiring (optional but nice)
         setupPlanModal();
@@ -144,5 +145,19 @@ function escapeHtml(str) {
 
 function escapeAttr(str) {
     return escapeHtml(str).replaceAll("`", "&#096;");
+}
+
+function scrollToHashIfPresent() {
+    const id = decodeURIComponent(window.location.hash.replace("#", ""));
+    if (!id) return;
+
+    const el = document.getElementById(id);
+    if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        if (window.location.pathname.endsWith("gallery.html") && typeof openLightboxFromId === "function") {
+            openLightboxFromId(id);
+        }
+    }
 }
 

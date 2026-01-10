@@ -525,6 +525,9 @@
   .max-h-\[90\%\] {
     max-height: 90%;
   }
+  .max-h-\[999px\] {
+    max-height: 999px;
+  }
   .min-h-32 {
     min-height: calc(var(--spacing) * 32);
   }
@@ -660,6 +663,9 @@
   }
   .snap-center {
     scroll-snap-align: center;
+  }
+  .scroll-mt-20 {
+    scroll-margin-top: calc(var(--spacing) * 20);
   }
   .scroll-mt-24 {
     scroll-margin-top: calc(var(--spacing) * 24);
@@ -879,6 +885,12 @@
   .border-gray-800 {
     border-color: var(--color-gray-800);
   }
+  .border-gray-800\/20 {
+    border-color: color-mix(in srgb, oklch(27.8% 0.033 256.848) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-gray-800) 20%, transparent);
+    }
+  }
   .border-gray-900 {
     border-color: var(--color-gray-900);
   }
@@ -1086,6 +1098,27 @@
   }
   .text-\[13px\] {
     font-size: 13px;
+  }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
+  .text-\[28px\] {
+    font-size: 28px;
+  }
+  .text-\[30px\] {
+    font-size: 30px;
+  }
+  .text-\[31px\] {
+    font-size: 31px;
+  }
+  .text-\[32px\] {
+    font-size: 32px;
+  }
+  .text-\[38px\] {
+    font-size: 38px;
+  }
+  .text-\[48px\] {
+    font-size: 48px;
   }
   .leading-relaxed {
     --tw-leading: var(--leading-relaxed);
@@ -1382,6 +1415,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-700);
+      }
+    }
+  }
+  .hover\:bg-gray-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-800);
       }
     }
   }
@@ -1712,6 +1752,11 @@
       height: calc(var(--spacing) * 36);
     }
   }
+  .md\:h-40 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 40);
+    }
+  }
   .md\:h-180 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 180);
@@ -1859,6 +1904,12 @@
     @media (width >= 48rem) {
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .md\:text-6xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
   .md\:text-7xl {

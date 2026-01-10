@@ -1,178 +1,193 @@
-// Gallery Popup Functionality
-
-const galleries = {
-    interior: [
-        { src: "src/images/sealodgepics/bedroom1-1.jpg", name: "Bedroom" },
-        { src: "src/images/sealodgepics/bedroom2-1.jpg", name: "Bedroom" },
-        { src: "src/images/sealodgepics/bedroom3-1.jpg", name: "Bedroom" },
-        { src: "src/images/sealodgepics/bedroom3-2.jpg", name: "Bedroom" },
-        { src: "src/images/sealodgepics/ACinbedroom.jpg", name: "Bedroom" },
-        { src: "src/images/sealodgepics/kitchen-1.jpg", name: "Kitchen" },
-        { src: "src/images/sealodgepics/kitchen-2.jpg", name: "Kitchen" },
-        { src: "src/images/sealodgepics/kitchen-3.jpg", name: "Kitchen" },
-        { src: "src/images/sealodgepics/kitchen-4.jpg", name: "Kitchen" },
-        { src: "src/images/sealodgepics/kitchen-5.jpg", name: "Kitchen" },
-        { src: "src/images/sealodgepics/bathroom1.jpeg", name: "Bathroom" },
-        { src: "src/images/sealodgepics/shower.jpg", name: "Bathroom" },
-        { src: "src/images/sealodgepics/living-1.jpg", name: "Living Room" },
-        { src: "src/images/sealodgepics/living-2.jpg", name: "Living Room" },
-        { src: "src/images/sealodgepics/living-3.jpg", name: "Living Room" },
-        { src: "src/images/sealodgepics/dining-1.jpg", name: "Dining Area" },
-        { src: "src/images/sealodgepics/dining-2.jpg", name: "Dining Area" },
-        { src: "src/images/sealodgepics/balcony-1.jpg", name: "Balcony" },
-        { src: "src/images/sealodgepics/balcony-2.jpg", name: "Balcony" },
-        { src: "src/images/sealodgepics/wall.jpg", name: "Balcony" },
-    ],
-    exterior: [
-        { src: "src/images/sealodgepics/pool-1.jpg", name: "Pool Area" },
-        { src: "src/images/sealodgepics/pool-2.jpg", name: "Pool Area" },
-        { src: "src/images/sealodgepics/pool-3.jpg", name: "Pool Area" },
-        { src: "src/images/sealodgepics/pool-4.jpg", name: "Pool Area" },
-        { src: "src/images/sealodgepics/parking2.jpg", name: "Parking" },
-        { src: "src/images/sealodgepics/parking.jpg", name: "Parking" },
-        { src: "src/images/sealodgepics/sealodgesign.jpg", name: "Entrance" },
-        { src: "src/images/sealodgepics/pier.jpg", name: "Pier" },
-    ],
-};
-
-
-const roomNames = {
-    interior: "Interior",
-    exterior: "Exterior",
-};
+let GALLERIES = [];          // array from JSON
+let galleriesByGroup = {};   // { pelican: [...], exterior: [...] }
+let groupTitleByGroup = {};  // { pelican: "The Pelican", ... }
 
 let currentGallery = [];
 let currentIndex = 0;
 let lightboxOpen = false;
 
-function openLightbox(room, index) {
-    currentGallery = galleries[room];
-    currentIndex = index;
-    document.getElementById("lightbox").classList.remove("hidden");
-    lightboxOpen = true;
-    updateLightbox();
+fetch("src/data/galleries.json")
+    .then((res) => res.json())
+    .then((data) => {
+        GALLERIES = data;
+
+        // Build quick lookup by group
+        galleriesByGroup = {};
+        groupTitleByGroup = {};
+
+        data.forEach((section) => {
+            galleriesByGroup[section.group] = section.images;
+            groupTitleByGroup[section.group] = section.title;
+        });
+
+        renderGallerySections(data);
+        setupDeepLinkOpen(); // supports ?room=pelican-g
+    })
+    .catch((err) => console.error("Error loading galleries:", err));
+
+function renderGallerySections(sections) {
+    const wrap = document.getElementById("gallerySections");
+    if (!wrap) return;
+
+    wrap.innerHTML = "";
+
+    sections.forEach((sec) => {
+        const sectionEl = document.createElement("section");
+        const expandableId = `expand-${sec.id}`;
+        const arrowId = `arrow-${sec.id}`;
+
+        sectionEl.className = "max-w-6xl mx-auto px-4 py-0.5 mt-4 scroll-mt-24";
+        sectionEl.id = sec.id;
+
+        // Pick first 6 images for preview grid
+        const preview = sec.images.slice(0, 6);
+
+        sectionEl.innerHTML = `
+      <button
+        onclick="toggleSection('${expandableId}', '${arrowId}')"
+        class="h-20 w-full border border-x-blue-50/0 flex items-center justify-between text-gray-800
+               px-4 py-2 select-none transform hover:scale-102 transition-transform duration-300"
+      >
+        <span class="text-2xl md:text-3xl font-medium">${escapeHtml(sec.title)}</span>
+
+        <svg id="${escapeAttr(arrowId)}" class="w-5 h-5 transform transition-transform duration-300 rotate-180"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div id="${escapeAttr(expandableId)}"
+           class="transition-all duration-500 ease-in-out overflow-hidden max-h-[999px]
+                  border-l border-r border-b border-gray-800/20"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
+          ${preview.map((img, i) => `
+            <div class="aspect-[4/3]">
+              <img
+                src="${escapeAttr(img.src)}"
+                alt="${escapeAttr(img.name || sec.title)}"
+                class="w-full h-full object-cover cursor-pointer card-hover rounded-md"
+                onclick="openLightbox('${escapeAttr(sec.group)}', ${i})"
+              />
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 px-4">
+          <button
+            class="flex items-center justify-center text-white text-lg sm:text-2xl bg-gray-800 px-10 py-3
+                   mt-2 rounded-md w-full sm:w-auto hover:bg-gray-200 hover:text-gray-800 font-medium
+                   transition-colors duration-300 ease-in-out cursor-pointer"
+            onclick="openLightbox('${escapeAttr(sec.group)}', 0)"
+          >
+            View All
+          </button>
+        </div>
+      </div>
+    `;
+
+        wrap.appendChild(sectionEl);
+    });
+    scrollToHashIfPresent();
 }
 
+/* ===== Lightbox (same idea as your old one) ===== */
+
+function openLightbox(group, index) {
+    currentGallery = galleriesByGroup[group] || [];
+    currentIndex = index;
+
+    if (!currentGallery.length) return;
+
+    document.getElementById("lightbox").classList.remove("hidden");
+    lightboxOpen = true;
+    updateLightbox(group);
+}
 
 function closeLightbox() {
     document.getElementById("lightbox").classList.add("hidden");
     lightboxOpen = false;
 }
 
-function updateLightbox() {
+function updateLightbox(group) {
     const img = document.getElementById("lightbox-img");
     const counter = document.getElementById("lightbox-counter");
     const roomLabel = document.getElementById("lightbox-room");
 
-    img.classList.add("opacity-0"); // fade out
+    img.classList.add("opacity-0");
     setTimeout(() => {
-        const currentItem = currentGallery[currentIndex];
-        img.src = currentItem.src;
-        roomLabel.textContent = currentItem.name; // show image name
+        const item = currentGallery[currentIndex];
+        img.src = item.src;
+        roomLabel.textContent = item.name || groupTitleByGroup[group] || "Gallery";
         counter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
-        img.onload = () => img.classList.remove("opacity-0");
-    }, 200);
-}
 
+        img.onload = () => img.classList.remove("opacity-0");
+    }, 150);
+}
 
 function nextImage() {
     currentIndex = (currentIndex + 1) % currentGallery.length;
-    updateLightbox("next");
+    updateLightbox(getCurrentGroup());
 }
 
 function prevImage() {
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-    updateLightbox("prev");
+    updateLightbox(getCurrentGroup());
 }
 
-// Keyboard Support
-document.addEventListener("keydown", (event) => {
-    if (!lightboxOpen) return; // only trigger when lightbox is active
-
-    switch (event.key) {
-        case "Escape":
-            closeLightbox();
-            break;
-        case "ArrowRight":
-            nextImage();
-            break;
-        case "ArrowLeft":
-            prevImage();
-            break;
+// Best-effort current group (based on currentGallery reference)
+function getCurrentGroup() {
+    for (const group of Object.keys(galleriesByGroup)) {
+        if (galleriesByGroup[group] === currentGallery) return group;
     }
-});
-
-// Mobile Swipe Support
-let startX = 0;
-let endX = 0;
-
-
-const lightboxImg = document.getElementById("lightbox-img");
-
-// Touch start
-lightboxImg.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-});
-
-// Touch end
-lightboxImg.addEventListener("touchend", (e) => {
-    endX = e.changedTouches[0].clientX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const swipeDistance = endX - startX;
-
-    if (Math.abs(swipeDistance) > 50) {  // threshold so tiny drags don’t trigger
-        if (swipeDistance < 0) {
-            nextImage();   // swipe left → next
-        } else {
-            prevImage();   // swipe right → previous
-        }
-    }
+    return "";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+/* ===== Deep link support: ?room=pelican-g ===== */
+
+function setupDeepLinkOpen() {
     const params = new URLSearchParams(window.location.search);
-    const roomParam = params.get("room");
+    const id = params.get("room");
+    if (!id) return;
 
-    if (roomParam) {
-        const section = document.getElementById(roomParam);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
+    const targetSection = GALLERIES.find((g) => g.id === id);
+    if (!targetSection) return;
+
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    setTimeout(() => openLightbox(targetSection.group, 0), 350);
+}
+
+/* ===== Your existing toggleSection can stay the same ===== */
+// toggleSection(expandableId, arrowId) { ... }
+
+/* ===== small helpers ===== */
+
+function escapeHtml(str) {
+    return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function escapeAttr(str) {
+    return escapeHtml(str).replaceAll("`", "&#096;");
+}
+
+function scrollToHashIfPresent() {
+    const id = decodeURIComponent(window.location.hash.replace("#", ""));
+    if (!id) return;
+
+    const el = document.getElementById(id);
+    if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        if (window.location.pathname.endsWith("gallery.html") && typeof openLightboxFromId === "function") {
+            openLightboxFromId(id);
         }
-
-        // Delay a bit to allow the page to load before opening
-        setTimeout(() => {
-            openLightboxFromId(roomParam);
-        }, 400);
     }
-});
-
-// Helper function to match room IDs to gallery groups and open lightbox
-function openLightboxFromId(galleryId) {
-    const roomMap = {
-        "bedroom-g": { group: "interior", match: "bedroom" },
-        "bathroom-g": { group: "interior", match: "bathroom" },
-        "kitchen-g": { group: "interior", match: "kitchen" },
-        "dining-g": { group: "interior", match: "dining" },
-        "living-g": { group: "interior", match: "living" },
-        "balcony-g": { group: "interior", match: "balcony" },
-    };
-
-    const entry = roomMap[galleryId];
-    if (!entry) return;
-
-    const { group, match } = entry;
-    const gallery = galleries[group];
-
-    // Find first image that matches the room keyword in src or name
-    const index = gallery.findIndex(
-        (img) =>
-            img.src.toLowerCase().includes(match) ||
-            img.name.toLowerCase().includes(match)
-    );
-
-    // Default to first image if not found
-    openLightbox(group, index === -1 ? 0 : index);
 }

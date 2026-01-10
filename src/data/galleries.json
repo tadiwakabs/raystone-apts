@@ -1,0 +1,56 @@
+[
+  {
+    "id": "pelican-g",
+    "title": "The Pelican",
+    "group": "pelican",
+    "images": [
+      { "src": "src/images/Raystone/pelican/1.jpg", "name": "Living Area" },
+      { "src": "src/images/Raystone/pelican/2.jpg", "name": "Kitchen" }
+    ]
+  },
+  {
+    "id": "falcon-g",
+    "title": "The Falcon",
+    "group": "falcon",
+    "images": [
+      { "src": "src/images/Raystone/falcon/1.jpg", "name": "Living Area" }
+    ]
+  },
+  {
+    "id": "raven-g",
+    "title": "The Raven",
+    "group": "raven",
+    "images": [
+      { "src": "src/images/Raystone/raven/1.jpg", "name": "Kitchen" }
+    ]
+  },
+  {
+    "id": "sparrow-g",
+    "title": "The Sparrow",
+    "group": "sparrow",
+    "images": [
+      { "src": "src/images/Raystone/sparrow/1.jpg", "name": "Living Area" }
+    ]
+  },
+  {
+    "id": "exterior-g",
+    "title": "Exterior",
+    "group": "exterior",
+    "images": [
+      { "src": "src/images/Raystone/exterior/exterior-gate.jpg", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/exterior/exterior-gate2.jpg", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/exterior/exterior-gate3.png", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/exterior/exterior-plot.jpg", "name": "Exterior - Parking Lot" },
+      { "src": "src/images/Raystone/exterior/exterior-plot2.jpg", "name": "Exterior - Parking Lot" },
+      { "src": "src/images/Raystone/landscape.jpg", "name": "Exterior - Landscaping" },
+      { "src": "src/images/Raystone/exterior/exterior-land.jpg", "name": "Exterior - Landscaping" },
+      { "src": "src/images/Raystone/exterior/exterior-night.jpg", "name": "Exterior - Night" },
+      { "src": "src/images/Raystone/exterior/exterior-playground.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/exterior/exterior-playground2.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/exterior/exterior-playground3.png", "name": "Playground" },
+      { "src": "src/images/Raystone/exterior/exterior-playgroundcollage.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/exterior/exterior-collage.jpg", "name": "Collage" },
+      { "src": "src/images/Raystone/exterior/firesystem.jpg", "name": "Fire System" }
+    ]
+  }
+]

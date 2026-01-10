@@ -24,32 +24,29 @@ function toggleMenu() {
 
 menuBtn.addEventListener("click", toggleMenu);
 
-// Rooms section navigation
-function navigateToRoom(roomId) {
-    if (window.location.pathname.includes("attractions.html")) {
-        const section = document.getElementById(roomId);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
+// Section navigation
+function navigateToSection(page, sectionId) {
+    const currentFile = window.location.pathname.split("/").pop(); // e.g. "index.html" / "gallery.html"
+    const targetFile = page;                                       // "plans.html" or "gallery.html"
+
+    // If we're already on the target page, just scroll
+    if (currentFile === targetFile) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Only for gallery: optionally open lightbox
+            if (targetFile === "gallery.html" && typeof openLightboxFromId === "function") {
+                openLightboxFromId(sectionId);
+            }
         }
-    } else {
-        window.location.href = `rooms.html#${roomId}`;
+        return;
     }
+
+    // Otherwise navigate with hash (simple + reliable)
+    window.location.href = `${targetFile}#${encodeURIComponent(sectionId)}`;
 }
 
-// Gallery section navigation
-function navigateToGallery(galleryId) {
-    if (window.location.pathname.includes("gallery.html")) {
-        const section = document.getElementById(galleryId);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-            // Optional: open lightbox immediately if desired
-            openLightboxFromId(galleryId);
-        }
-    } else {
-        // Navigate with query parameter for easy detection
-        window.location.href = `gallery.html?room=${encodeURIComponent(galleryId)}`;
-    }
-}
 
 
 // Optional: if using this inside a mobile menu
@@ -133,7 +130,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     startAutoplay();
 });
 
-// Load plan info (FOR MOBILE, RENDER ANCHORS UNDER)
+// Load plan info
 fetch("src/data/plans.json")
     .then((res) => res.json())
     .then((rooms) => {
@@ -219,7 +216,7 @@ fetch("src/data/plans.json")
         <td class="px-4 py-3">
           <div class="flex items-center justify-end gap-3">
             <a
-              onclick="navigateToGallery('${room.planId}')"
+              onclick="navigateToSection('plans.html','${room.planId}')"
               class="text-gray-800 text-lg bg-gray-300 px-3 py-2 rounded-md
                      hover:bg-gray-800/80 hover:text-gray-200 font-medium transition-colors duration-300
                      ease-in-out whitespace-nowrap cursor-pointer"
@@ -228,7 +225,7 @@ fetch("src/data/plans.json")
             </a>
 
             <a
-              onclick="navigateToGallery('${room.galleryId}')"
+              onclick="navigateToSection('gallery.html','${room.galleryId}')"
               class="text-gray-100 text-lg bg-gray-800 px-3 py-2 rounded-md
                      hover:bg-gray-200 hover:text-gray-600 font-medium transition-colors duration-300
                      ease-in-out whitespace-nowrap cursor-pointer"
