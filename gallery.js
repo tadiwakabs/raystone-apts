@@ -58,7 +58,7 @@ function renderGallerySections(sections) {
       </button>
 
       <div id="${escapeAttr(expandableId)}"
-           class="transition-all duration-500 ease-in-out overflow-hidden max-h-[1500px]
+           class="transition-all duration-500 ease-in-out overflow-hidden max-h-[1520px]
                   border-l border-r border-b border-gray-800/20"
       >
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto p-4 max-w-6xl">
