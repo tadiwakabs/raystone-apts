@@ -37,20 +37,20 @@
     "title": "Exterior",
     "group": "exterior",
     "images": [
-      { "src": "src/images/Raystone/exterior/exterior-gate.jpg", "name": "Exterior - Gate" },
-      { "src": "src/images/Raystone/exterior/exterior-gate2.jpg", "name": "Exterior - Gate" },
-      { "src": "src/images/Raystone/exterior/exterior-gate3.png", "name": "Exterior - Gate" },
-      { "src": "src/images/Raystone/exterior/exterior-plot.jpg", "name": "Exterior - Parking Lot" },
-      { "src": "src/images/Raystone/exterior/exterior-plot2.jpg", "name": "Exterior - Parking Lot" },
-      { "src": "src/images/Raystone/landscape.jpg", "name": "Exterior - Landscaping" },
-      { "src": "src/images/Raystone/exterior/exterior-land.jpg", "name": "Exterior - Landscaping" },
-      { "src": "src/images/Raystone/exterior/exterior-night.jpg", "name": "Exterior - Night" },
-      { "src": "src/images/Raystone/exterior/exterior-playground.jpg", "name": "Playground" },
-      { "src": "src/images/Raystone/exterior/exterior-playground2.jpg", "name": "Playground" },
-      { "src": "src/images/Raystone/exterior/exterior-playground3.png", "name": "Playground" },
-      { "src": "src/images/Raystone/exterior/exterior-playgroundcollage.jpg", "name": "Playground" },
-      { "src": "src/images/Raystone/exterior/exterior-collage.jpg", "name": "Collage" },
-      { "src": "src/images/Raystone/exterior/firesystem.jpg", "name": "Fire System" }
+      { "src": "src/images/Raystone/Exterior/exterior-gate.JPG", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/Exterior/exterior-gate2.JPG", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/Exterior/exterior-gate3.PNG", "name": "Exterior - Gate" },
+      { "src": "src/images/Raystone/Exterior/exterior-plot.JPG", "name": "Exterior - Parking Lot" },
+      { "src": "src/images/Raystone/Exterior/exterior-plot2.JPG", "name": "Exterior - Parking Lot" },
+      { "src": "src/images/Raystone/landscape.JPG", "name": "Exterior - Landscaping" },
+      { "src": "src/images/Raystone/Exterior/exterior-land.JPG", "name": "Exterior - Landscaping" },
+      { "src": "src/images/Raystone/Exterior/exterior-night.jpg", "name": "Exterior - Night" },
+      { "src": "src/images/Raystone/Exterior/exterior-playground.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/Exterior/exterior-playground2.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/Exterior/exterior-playground3.png", "name": "Playground" },
+      { "src": "src/images/Raystone/Exterior/exterior-playgroundcollage.jpg", "name": "Playground" },
+      { "src": "src/images/Raystone/Exterior/exterior-collage.JPG", "name": "Collage" },
+      { "src": "src/images/Raystone/Exterior/firesystem.JPG", "name": "Fire System" }
     ]
   }
 ]
