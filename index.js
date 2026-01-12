@@ -26,8 +26,8 @@ menuBtn.addEventListener("click", toggleMenu);
 
 // Section navigation
 function navigateToSection(page, sectionId) {
-    const currentFile = window.location.pathname.split("/").pop(); // e.g. "index.html" / "gallery.html"
-    const targetFile = page;                                       // "plans.html" or "gallery.html"
+    const currentFile = window.location.pathname.split("/").pop();
+    const targetFile = page;
 
     // If we're already on the target page, just scroll
     if (currentFile === targetFile) {

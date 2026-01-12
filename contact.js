@@ -1,3 +1,21 @@
+// Button State Management
+const submitBtn = document.getElementById("submitBtn");
+const submitText = document.getElementById("submitText");
+const submitSpinner = document.getElementById("submitSpinner");
+
+function setSubmitting(isSubmitting) {
+    submitBtn.disabled = isSubmitting;
+
+    if (isSubmitting) {
+        submitSpinner.classList.remove("hidden");
+        submitText.textContent = "Submitting...";
+    } else {
+        submitSpinner.classList.add("hidden");
+        submitText.textContent = "Submit";
+    }
+}
+
+
 // Form Submission to Appwrite Function
 const form = document.getElementById("contactForm");
 const popup = document.getElementById("thankYouPopup");
@@ -10,14 +28,13 @@ const FUNCTION_ID = "69616efb002d83535a9d";
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    setSubmitting(true);
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-
-    // Add the current page URL to the form data
     data._origin = window.location.href;
 
     try {
-        // Direct API call without authentication
         const response = await fetch(`${APPWRITE_ENDPOINT}/functions/${FUNCTION_ID}/executions`, {
             method: 'POST',
             headers: {
@@ -32,13 +49,11 @@ form.addEventListener("submit", async function (e) {
 
         const execution = await response.json();
 
-        // Parse the function response
         let result;
         try {
             result = JSON.parse(execution.responseBody);
-        } catch (e) {
-            console.error('Parse error:', e, execution);
-            result = { success: false, message: 'Invalid response from server' };
+        } catch {
+            result = { success: false };
         }
 
         if (response.ok && result.success) {
@@ -46,13 +61,16 @@ form.addEventListener("submit", async function (e) {
             popup.classList.add("flex");
             openPopup();
         } else {
-            alert(result.message || "Oops! Something went wrong, please try again.");
+            alert(result.message || "Oops! Something went wrong.");
         }
     } catch (error) {
-        console.error('Form submission error:', error);
-        alert("Oops! Something went wrong, please try again.");
+        console.error(error);
+        alert("Oops! Something went wrong.");
+    } finally {
+        setSubmitting(false);
     }
 });
+
 
 function openPopup() {
     const popup = document.getElementById("thankYouPopup");
