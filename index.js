@@ -167,7 +167,7 @@ fetch("src/data/plans.json")
 
         <div class="px-4 pb-4 flex gap-2">
           <a
-            onclick="navigateToGallery('${room.planId}')"
+            onclick="navigateToSection('plans.html','${room.planId}')"
             class="flex-1 text-center text-gray-800 text-sm bg-gray-300 px-3 py-2 rounded-md
                    hover:bg-gray-800/80 hover:text-gray-200 font-medium transition-colors duration-300
                    ease-in-out cursor-pointer"
@@ -176,7 +176,7 @@ fetch("src/data/plans.json")
           </a>
 
           <a
-            onclick="navigateToGallery('${room.galleryId}')"
+            onclick="navigateToSection('gallery.html','${room.galleryId}')"
             class="flex-1 text-center text-gray-100 text-sm bg-gray-800 px-3 py-2 rounded-md
                    hover:bg-gray-200 hover:text-gray-600 font-medium transition-colors duration-300
                    ease-in-out cursor-pointer"
