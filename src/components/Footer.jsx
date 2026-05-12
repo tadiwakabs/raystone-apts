@@ -38,7 +38,7 @@ export default function Footer() {
 
       {/* Logo and Copyright */}
       <div className="center">
-        <img src="/src/images/logowtext.svg" width="300" alt="logo with text" />
+        <img src="/images/logowtext.svg" width="300" alt="logo with text" />
       </div>
       <p className="text-center mx-auto mt-4 max-w-6xl text-xl text-white px-2">
         &copy; {year} Raystone Apartment Homes. All rights reserved.

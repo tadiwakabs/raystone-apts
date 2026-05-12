@@ -14,7 +14,7 @@ export default function Gallery() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/src/data/galleries.json')
+    fetch('/data/galleries.json')
       .then(r => r.json())
       .then(data => {
         setGalleries(data)

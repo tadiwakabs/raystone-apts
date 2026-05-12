@@ -131,7 +131,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 });
 
 // Load plan info
-fetch("src/data/plans.json")
+fetch("/data/plans.json")
     .then((res) => res.json())
     .then((rooms) => {
         const tableBody = document.getElementById("roomsTableBody");

@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo — desktop */}
         <div className="flex items-center space-x-4">
-          <img src="/src/images/logo.svg" width="36" alt="logo" />
+          <img src="/images/logo.svg" width="36" alt="logo" />
           <Link to="/" className="hidden md:flex text-2xl font-bold text-gray-800">
             Raystone Apartments
           </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
           transition-opacity duration-300 md:hidden
           ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
-        <img src="/src/images/logowtext.svg" className="my-12" width="240" alt="logo with text" />
+        <img src="/images/logowtext.svg" className="my-12" width="240" alt="logo with text" />
         {NAV_LINKS.map(({ label, to }) => (
           <Link
             key={to}

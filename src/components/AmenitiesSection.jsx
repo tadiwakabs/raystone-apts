@@ -76,7 +76,7 @@ export default function AmenitiesSection() {
   const [activeFilter, setActiveFilter] = useState('Featured')
 
   useEffect(() => {
-    fetch('/src/data/amenities.json')
+    fetch('/data/amenities.json')
       .then(r => r.json())
       .then(setAmenities)
       .catch(err => console.error('Error loading amenities:', err))

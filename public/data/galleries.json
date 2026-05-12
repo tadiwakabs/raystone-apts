@@ -1,0 +1,111 @@
+[
+  {
+    "id": "pelican-g",
+    "title": "The Pelican",
+    "group": "pelican",
+    "images": [
+      { "src": "/images/Raystone/Pelican/Living 1.jpg", "name": "The Pelican - Living Area" },
+      { "src": "/images/Raystone/Pelican/Living 3.jpg", "name": "The Pelican - Living Area" },
+      { "src": "/images/Raystone/Pelican/Living 4.jpg", "name": "The Pelican - Living Area" },
+      { "src": "/images/Raystone/Pelican/Kitchen 1.JPG", "name": "The Pelican - Kitchen" },
+      { "src": "/images/Raystone/Pelican/Kitchen 4.JPG", "name": "The Pelican - Kitchen" },
+      { "src": "/images/Raystone/Pelican/Dining.jpg", "name": "The Pelican - Dining Area" },
+      { "src": "/images/Raystone/Pelican/Bedroom Master.JPG", "name": "The Pelican - Master Bedroom" },
+      { "src": "/images/Raystone/Pelican/Closet master.JPG", "name": "The Pelican - Master Bedroom" },
+      { "src": "/images/Raystone/Pelican/Bedroom 1.JPG", "name": "The Pelican - Bedroom" },
+      { "src": "/images/Raystone/Pelican/Bedroom 3.jpg", "name": "The Pelican - Bedroom" },
+      { "src": "/images/Raystone/Pelican/Closet.JPG", "name": "The Pelican - Bedroom" },
+      { "src": "/images/Raystone/Pelican/Bath 1.JPG", "name": "The Pelican - Bathroom" },
+      { "src": "/images/Raystone/Pelican/Bath 2.jpg", "name": "The Pelican - Bathroom" },
+      { "src": "/images/Raystone/Pelican/Bath 5.jpg", "name": "The Pelican - Bathroom" },
+      { "src": "/images/Raystone/Pelican/Laundry 1.JPG", "name": "The Pelican - Laundry" },
+      { "src": "/images/Raystone/Pelican/Laundry 2.jpg", "name": "The Pelican - Laundry" },
+      { "src": "/images/Raystone/Pelican/Hallway.jpg", "name": "The Pelican - Hallway" }
+    ]
+  },
+
+  {
+    "id": "falcon-g",
+    "title": "The Falcon",
+    "group": "falcon",
+    "images": [
+      { "src": "/images/Raystone/Falcon/Living 1.JPG", "name": "The Falcon - Living Area" },
+      { "src": "/images/Raystone/Falcon/Living 3.JPG", "name": "The Falcon - Living Area" },
+      { "src": "/images/Raystone/Falcon/Kitchen 1.JPG", "name": "The Falcon - Kitchen" },
+      { "src": "/images/Raystone/Falcon/Dining.JPG", "name": "The Falcon - Dining Area" },
+      { "src": "/images/Raystone/Falcon/Bedroom Master.JPG", "name": "The Falcon - Master Bedroom" },
+      { "src": "/images/Raystone/Falcon/Bedroom.JPG", "name": "The Falcon - Bedroom" },
+      { "src": "/images/Raystone/Falcon/Bedroom 2.JPG", "name": "The Falcon - Bedroom" },
+      { "src": "/images/Raystone/Falcon/Bath 1.JPG", "name": "The Falcon - Bathroom" },
+      { "src": "/images/Raystone/Falcon/Bath 3.JPG", "name": "The Falcon - Bathroom" },
+      { "src": "/images/Raystone/Falcon/Bath 4.JPG", "name": "The Falcon - Bathroom" },
+      { "src": "/images/Raystone/Falcon/Laundry.JPG", "name": "The Falcon - Laundry" },
+      { "src": "/images/Raystone/Falcon/Hallway.JPG", "name": "The Falcon - Hallway" }
+    ]
+  },
+
+  {
+    "id": "raven-g",
+    "title": "The Raven",
+    "group": "raven",
+    "images": [
+      { "src": "/images/Raystone/Raven/Living 2.jpg", "name": "The Raven - Living Area" },
+      { "src": "/images/Raystone/Raven/Living 3.jpg", "name": "The Raven - Living Area" },
+      { "src": "/images/Raystone/Raven/Living 4.jpg", "name": "The Raven - Living Area" },
+      { "src": "/images/Raystone/Raven/Kitchen 3.JPG", "name": "The Raven - Kitchen" },
+      { "src": "/images/Raystone/Raven/Kitchen 4.jpg", "name": "The Raven - Kitchen" },
+      { "src": "/images/Raystone/Raven/Kitchen 5.jpg", "name": "The Raven - Kitchen" },
+      { "src": "/images/Raystone/Raven/Kitchen 1.jpg", "name": "The Raven - Dining Area" },
+      { "src": "/images/Raystone/Raven/Bedroom Master.jpg", "name": "The Raven - Master Bedroom" },
+      { "src": "/images/Raystone/Raven/bedroom.jpg", "name": "The Raven - Bedroom" },
+      { "src": "/images/Raystone/Raven/Bath 1.JPG", "name": "The Raven - Bathroom" },
+      { "src": "/images/Raystone/Raven/Bath 2.jpg", "name": "The Raven - Bathroom" },
+      { "src": "/images/Raystone/Raven/Bath 3.jpg", "name": "The Raven - Bathroom" },
+      { "src": "/images/Raystone/Raven/Bath 4.jpg", "name": "The Raven - Bathroom" },
+      { "src": "/images/Raystone/Raven/Laundry 1.JPG", "name": "The Raven - Laundry" },
+      { "src": "/images/Raystone/Raven/Laundry 2.jpg", "name": "The Raven - Laundry" }
+    ]
+  },
+
+  {
+    "id": "sparrow-g",
+    "title": "The Sparrow",
+    "group": "sparrow",
+    "images": [
+      { "src": "/images/Raystone/Sparrow/Living 1.JPG", "name": "The Sparrow - Living Area" },
+      { "src": "/images/Raystone/Sparrow/Living 2.JPG", "name": "The Sparrow - Living Area" },
+      { "src": "/images/Raystone/Sparrow/Kitchen 1.JPG", "name": "The Sparrow - Kitchen" },
+      { "src": "/images/Raystone/Sparrow/Dining.JPG", "name": "The Sparrow - Dining Area" },
+      { "src": "/images/Raystone/Sparrow/Bedroom 2.JPG", "name": "The Sparrow - Master Bedroom" },
+      { "src": "/images/Raystone/Sparrow/Bedroom 1.JPG", "name": "The Sparrow - Bedroom" },
+      { "src": "/images/Raystone/Sparrow/Bath 1.JPG", "name": "The Sparrow - Bathroom" },
+      { "src": "/images/Raystone/Sparrow/Bath 3.JPG", "name": "The Sparrow - Bathroom" },
+      { "src": "/images/Raystone/Sparrow/Bath 4.JPG", "name": "The Sparrow - Bathroom" },
+      { "src": "/images/Raystone/Sparrow/Laundry.JPG", "name": "The Sparrow - Laundry" },
+      { "src": "/images/Raystone/Sparrow/Hallway.jpeg", "name": "The Sparrow - Hallway" }
+    ]
+  },
+
+  {
+    "id": "exterior-g",
+    "title": "Exterior",
+    "group": "exterior",
+    "images": [
+      { "src": "/images/Raystone/Exterior/exterior-gate.JPG", "name": "Exterior - Gate" },
+      { "src": "/images/Raystone/Exterior/exterior-plot3.jpg", "name": "Exterior - Parking Lot" },
+      { "src": "/images/Raystone/Exterior/exterior-land2.jpeg", "name": "Exterior - Landscaping" },
+      { "src": "/images/Raystone/Exterior/exterior-playground.jpg", "name": "Playground" },
+      { "src": "/images/Raystone/Exterior/exterior-gazebo.JPG", "name": "Exterior - Gazebo" },
+      { "src": "/images/Raystone/Exterior/exterior-gate3.PNG", "name": "Exterior - Gate" },
+      { "src": "/images/Raystone/Exterior/exterior-fence.PNG", "name": "Exterior - Fence" },
+      { "src": "/images/Raystone/Exterior/exterior-plot.JPG", "name": "Exterior - Parking Lot" },
+      { "src": "/images/Raystone/Exterior/exterior-day.PNG", "name": "Exterior - Day" },
+      { "src": "/images/Raystone/Exterior/exterior-night.jpg", "name": "Exterior - Night" },
+      { "src": "/images/Raystone/Exterior/exterior-dogpark.png", "name": "Exterior - Dog Park" },
+      { "src": "/images/Raystone/Exterior/exterior-dogpark2.png", "name": "Exterior - Dog Park" },
+      { "src": "/images/Raystone/Exterior/exterior-playground2.jpg", "name": "Playground" },
+      { "src": "/images/Raystone/Exterior/exterior-playground3.png", "name": "Playground" },
+      { "src": "/images/Raystone/Exterior/firesystem.JPG", "name": "Fire System" }
+    ]
+  }
+]

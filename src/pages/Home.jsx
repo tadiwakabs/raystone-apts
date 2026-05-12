@@ -40,7 +40,7 @@ export default function Home() {
     <div className="pt-0">
       {/* Hero */}
       <div
-        style={{ backgroundImage: "url('/src/images/Raystone/cover.png')" }}
+        style={{ backgroundImage: "url('/images/Raystone/cover.png')" }}
         className="bg-[length:150%] md:bg-cover bg-no-repeat min-h-[30vh] md:min-h-180 max-sm:mt-18"
       >
         <div className="w-full h-full bg-black/30 center flex-col md:pt-60 md:pb-60 max-sm:mt-4">
@@ -95,7 +95,7 @@ export default function Home() {
           </p>
         </div>
         <img
-          src="/src/images/Raystone/Raven/Kitchen 4.jpg"
+          src="/images/Raystone/Raven/Kitchen 4.jpg"
           className="w-full h-60 md:h-80 object-cover card-hover"
           alt="Example Suite"
         />
@@ -213,7 +213,7 @@ export default function Home() {
         <div className="mt-8 flex flex-col items-center justify-center gap-2">
           <div className="transform hover:scale-104 transition-transform duration-300 center md:w-[85%]">
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="relative group block w-full h-full">
-              <img src="/src/images/location.png" alt="location" className="border border-gray-900 w-full" />
+              <img src="/images/location.png" alt="location" className="border border-gray-900 w-full" />
               <div className="absolute inset-0 bg-black center opacity-0 group-hover:opacity-70 transition-opacity duration-300">
                 <span className="pt-4 text-white text-xl font-semibold opacity-100">Open in Google Maps</span>
               </div>
@@ -244,13 +244,13 @@ export default function Home() {
         <h2 className="center text-gray-800 text-2xl font-semibold max-md:px-4">Check out our apartments in detail!</h2>
         <div id="footerImages" className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto px-4 max-w-6xl mt-8">
           <div className="aspect-[4/3] overflow-hidden card-hover cursor-pointer">
-            <img src="/src/images/Raystone/pic 1.png" className="w-full h-full object-cover" alt="Dining Area" />
+            <img src="/images/Raystone/pic 1.png" className="w-full h-full object-cover" alt="Dining Area" />
           </div>
           <div className="aspect-[4/3] overflow-hidden card-hover cursor-pointer">
-            <img src="/src/images/Raystone/Exterior/exterior-gazebo.JPG" className="w-full h-full object-cover" alt="Outside View" />
+            <img src="/images/Raystone/Exterior/exterior-gazebo.JPG" className="w-full h-full object-cover" alt="Outside View" />
           </div>
           <div className="aspect-[4/3] overflow-hidden card-hover cursor-pointer">
-            <img src="/src/images/Raystone/IMG_0229.JPG" className="w-full h-full object-cover" alt="Bedroom" />
+            <img src="/images/Raystone/IMG_0229.JPG" className="w-full h-full object-cover" alt="Bedroom" />
           </div>
         </div>
         <div className="center p-4 max-w-6xl mx-auto">

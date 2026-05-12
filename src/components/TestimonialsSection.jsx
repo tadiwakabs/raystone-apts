@@ -110,7 +110,7 @@ export default function TestimonialsSection() {
   const scrollEndTimerRef = useRef(null)
 
   useEffect(() => {
-    fetch('/src/data/testimonials.json')
+    fetch('/data/testimonials.json')
       .then(r => r.json())
       .then(setReviews)
       .catch(err => console.error('Error loading testimonials:', err))

@@ -23,7 +23,7 @@ export default function Contact() {
   })
 
   useEffect(() => {
-    fetch('/src/data/countries.json')
+    fetch('/data/countries.json')
       .then(r => r.json())
       .then(setCountries)
       .catch(err => console.error('Error loading countries:', err))

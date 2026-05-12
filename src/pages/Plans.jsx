@@ -6,7 +6,7 @@ export default function Plans() {
   const [modalSrc, setModalSrc] = useState(null)
 
   useEffect(() => {
-    fetch('/src/data/plans.json')
+    fetch('/data/plans.json')
       .then(r => r.json())
       .then(setPlans)
       .catch(err => console.error('Error loading floor plans:', err))

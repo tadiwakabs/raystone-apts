@@ -7,7 +7,7 @@ export default function PlansPreviewSection() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/src/data/plans.json')
+    fetch('/data/plans.json')
       .then(r => r.json())
       .then(setPlans)
       .catch(err => console.error('Error loading plans:', err))

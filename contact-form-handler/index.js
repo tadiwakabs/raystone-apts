@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-const logoUrl = process.env.LOGO_URL || "https://raystoneapts.com/src/logo.png";
+const logoUrl = process.env.LOGO_URL || "https://raystoneapts.com/images/logo.png";
 
 export default async ({ req, res, log, error }) => {
     try {

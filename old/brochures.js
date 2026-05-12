@@ -1,4 +1,4 @@
-fetch("src/data/brochures.json")
+fetch("/data/brochures.json")
     .then((res) => res.json())
     .then((items) => {
         const list = document.getElementById("brochureList");
