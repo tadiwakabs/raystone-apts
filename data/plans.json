@@ -1,0 +1,38 @@
+[
+  {
+    "name": "The Pelican",
+    "description": "3 Bed | 2 Bath | 1277 sq.ft",
+    "price": 1665,
+    "image": "/images/Raystone/The Pelican 3 BR 2 Bath.png",
+    "planId": "pelican",
+    "galleryId": "pelican-g",
+    "descriptionLong": "The Pelican offers a spacious layout perfect for families or roommates. With three bedrooms and two bathrooms, this plan provides ample space for everyone to enjoy. The open-concept living area is ideal for entertaining guests or relaxing after a long day."
+  },
+  {
+    "name": "The Falcon",
+    "description": "2 Bed | 2 Bath | 964 sq.ft",
+    "price": 1415,
+    "image": "/images/Raystone/The Falcon 2 BR 2 Bath.png",
+    "planId": "falcon",
+    "galleryId": "falcon-g",
+    "descriptionLong": "The Falcon is a stylish and efficient two-bedroom, two-bathroom apartment that maximizes space without sacrificing comfort. Perfect for young professionals or small families, this plan features modern amenities and a well-designed layout."
+  },
+  {
+    "name": "The Raven",
+    "description": "2 Bed | 2 Bath | 951 sq.ft",
+    "price": 1465,
+    "image": "/images/Raystone/The Raven 2 BR 2 Bath.png",
+    "planId": "raven",
+    "galleryId": "raven-g",
+    "descriptionLong": "The Raven is a contemporary two-bedroom, two-bathroom apartment that combines functionality with style. With a focus on open living spaces and natural light, this plan is perfect for those who appreciate modern design and comfort."
+  },
+  {
+    "name": "The Sparrow",
+    "description": "3 Bed | 2 Bath | 1294 sq.ft",
+    "price": 1615,
+    "image": "/images/Raystone/The Sparrow 3 BR 2 Bath.png",
+    "planId": "sparrow",
+    "galleryId": "sparrow-g",
+    "descriptionLong": "The Sparrow is a spacious three-bedroom, two-bathroom apartment designed for families or roommates seeking comfort and convenience. This plan features a large living area, modern kitchen, and ample storage space to meet all your needs."
+  }
+]
