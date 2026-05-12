@@ -1,10 +1,3 @@
-/.idea/
-/node_modules/
-privacy-policy.html
-notes.txt
-.env
-src/images/Raystone.zip
-
 # Logs
 logs
 *.log
@@ -14,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+node_modules
 dist
 dist-ssr
 *.local
