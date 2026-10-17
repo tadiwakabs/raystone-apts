@@ -39,7 +39,7 @@ export default function PlansPreviewSection() {
                   <h3 className="text-lg font-semibold text-gray-900">{room.name}</h3>
                   <p className="text-sm text-gray-700 mt-1">{room.description}</p>
                   <p className="text-sm font-semibold text-gray-900 mt-2">
-                    <span>Starting at $ </span>{price}
+                    {/* <span>Starting at $ </span>{price} */}
                   </p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function PlansPreviewSection() {
                   <th className="px-4 py-3 text-left text-xl font-semibold text-gray-800 max-md:w-30" />
                   <th className="md:px-4 py-3 text-center md:text-xl font-semibold text-gray-800">Plan</th>
                   <th className="md:px-4 py-3 text-center md:text-xl font-semibold text-gray-800">Description</th>
-                  <th className="md:px-4 py-3 text-center md:text-xl font-semibold text-gray-800">Price</th>
+                  {/* <th className="md:px-4 py-3 text-center md:text-xl font-semibold text-gray-800">Price</th> */}
                   <th className="hidden md:table-cell md:px-4 md:py-3" />
                 </tr>
               </thead>
@@ -93,9 +93,9 @@ export default function PlansPreviewSection() {
                       </td>
                       <td className="px-4 py-3 text-xl font-medium text-gray-800 text-center">{room.name}</td>
                       <td className="px-4 py-3 text-xl text-gray-800 text-center">{room.description}</td>
-                      <td className="px-4 py-3 text-xl text-gray-800 font-medium text-center">
-                        <p className="text-[13px] mb-1">Starting at</p>
-                        <span>$&nbsp;</span>{price}
+                       <td className="px-4 py-3 text-xl text-gray-800 font-medium text-center">
+                         {/* <p className="text-[13px] mb-1">Starting at</p>
+                        <span>$&nbsp;</span>{price} */}
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center justify-end gap-3">

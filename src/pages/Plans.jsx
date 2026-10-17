@@ -55,7 +55,7 @@ export default function Plans() {
                     <div className="flex items-start justify-between gap-4">
                       <h2 className="text-xl md:text-2xl font-semibold text-gray-900">{p.name}</h2>
                       <div className="text-lg md:text-xl font-semibold text-gray-900 whitespace-nowrap">
-                        <span className="font-normal text-md md:text-lg">starting at</span> ${price}
+                        {/* <span className="font-normal text-md md:text-lg">starting at</span> ${price} */}
                       </div>
                     </div>
 
